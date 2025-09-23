@@ -65,12 +65,10 @@ export const Navigation = () => {
                 {item.name}
               </button>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Navigation Toggle */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"

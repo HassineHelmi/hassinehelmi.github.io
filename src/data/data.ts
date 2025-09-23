@@ -46,6 +46,7 @@ export interface Project {
   features: string[];
   github?: string;
   demo?: string;
+  screenshot?: string;
 }
 
 export interface Certification {
@@ -77,7 +78,7 @@ export interface SkillCategory {
 export const personalInfo = {
   name: "Helmi Hassine",
   title: "Full-Stack Developer",
-  tagline: "Hi, I'm Helmi Hassine – a passionate Full-Stack Developer dedicated to building robust, scalable, and innovative solutions.",
+  tagline: "Hi, I'm Helmi Hassine -  a passionate Full-Stack Developer dedicated to building robust, scalable, and innovative solutions.",
   location: "Monastir, Tunisia",
   bio: "I am a software engineer from Monastir, Tunisia, with a Software Engineering degree from EPI Digital School. I have experience building full-stack applications, architecting scalable solutions, and collaborating with teams using Agile/Scrum methodologies. I enjoy creating elegant UI components and solving complex problems with efficient code.",
   contact: {
@@ -240,8 +241,8 @@ export const projects: Project[] = [
     description: 'A comprehensive full-stack recruitment platform featuring advanced candidate matching, real-time communication, and integrated authentication systems.',
     technologies: ['Next.js', 'Spring Boot', 'Keycloak', 'AWS', 'PostgreSQL', 'TypeScript'],
     features: ['AI-powered matching', 'Real-time messaging', 'Advanced filtering', 'Cloud deployment'],
-    github: 'https://github.com/HassineHelmi',
-    demo: 'https://talent-cloud-demo.com'
+    github: 'https://github.com/HassineHelmi/TalentCloud',
+    screenshot: '/talent-cloud.png'
   },
   {
     title: 'Deal Hub',
@@ -249,21 +250,23 @@ export const projects: Project[] = [
     technologies: ['React Native', 'Firebase', 'JavaScript', 'Stripe API'],
     features: ['Cross-platform compatibility', 'Real-time notifications', 'Secure payments', 'User authentication'],
     github: 'https://github.com/HassineHelmi',
-    demo: 'https://deal-hub-demo.com'
+    screenshot: '/public/deal-hub.png'
   },
   {
     title: 'Smart Mirror',
     description: 'Innovative IoT solution featuring facial recognition, voice commands, and health monitoring capabilities for modern smart homes.',
     technologies: ['Python', 'OpenCV', 'Raspberry Pi', 'IoT', 'Machine Learning'],
     features: ['Face recognition', 'Voice control', 'Health monitoring', 'Weather updates'],
-    github: 'https://github.com/HassineHelmi'
+    github: 'https://github.com/HassineHelmi',
+    screenshot: '/public/smart-mirror.png'
   },
   {
     title: 'Bankerize UI Toolkit',
     description: 'Comprehensive component library built with modern development practices, featuring reusable components and design system guidelines.',
     technologies: ['React', 'TailwindCSS', 'Storybook', 'NX Monorepo', 'TypeScript'],
     features: ['Reusable components', 'Design system', 'Documentation', 'Testing suite'],
-    github: 'https://github.com/HassineHelmi'
+    github: 'https://github.com/HassineHelmi',
+    screenshot: '/public/bankerize-ui-toolkit.png'
   }
 ];
 
