@@ -47,7 +47,7 @@ export const HeroSection = () => {
             >
               👋
             </motion.span>
-            <span className="text-lg font-medium">Hello, I'm</span>
+            <span className="text-lg font-medium">Hello, I&apos;m</span>
           </motion.div>
 
           {/* Main Name */}

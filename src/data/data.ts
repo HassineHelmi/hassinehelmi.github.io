@@ -59,17 +59,17 @@ export interface Certification {
 export interface Service {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<any>;
   features: string[];
   technologies: string[];
 }
 
 export interface SkillCategory {
   title: string;
-  icon: any;
+  icon: unknown;
   skills: {
     name: string;
-    icon: any;
+    icon: unknown;
     level: number;
   }[];
 }

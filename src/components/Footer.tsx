@@ -81,7 +81,7 @@ export const Footer = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-4">Let's Connect</h4>
+            <h4 className="text-lg font-semibold mb-4">Let&apos;s Connect</h4>
             <div className="flex space-x-4 mb-4">
               {socialLinks.map((link) => (
                 <motion.a

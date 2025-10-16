@@ -137,7 +137,7 @@ export const ContactSection = () => {
             Get In Touch
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Let's discuss your next project or just say hello!
+            Let&apos;s discuss your next project or just say hello!
           </p>
         </motion.div>
 
@@ -319,7 +319,7 @@ export const ContactSection = () => {
                   exit={{ opacity: 0, y: -20 }}
                 >
                   <p className="text-green-700 dark:text-green-400 font-medium">
-                    ✅ Thank you for your message! I'll get back to you soon.
+                    ✅ Thank you for your message! I&apos;ll get back to you soon.
                   </p>
                 </motion.div>
               )}

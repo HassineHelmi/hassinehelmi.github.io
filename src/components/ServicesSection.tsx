@@ -1,7 +1,8 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
-import { services } from '../data/data';
+import { services, Service } from '../data/data';
 
 export const ServicesSection = () => {
   return (
@@ -34,7 +35,6 @@ export const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Enhanced layout: 3 items in first row, 2 centered below, all cards same height */}
         <div className="flex flex-col gap-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.slice(0, 3).map((service, index) => (
@@ -43,7 +43,7 @@ export const ServicesSection = () => {
           </div>
           <div className="flex justify-center gap-8">
             {services.slice(3, 5).map((service, index) => (
-              <ServiceCard key={service.title} service={service} index={index+3} cardClass="h-[340px] w-full md:w-[340px]" />
+              <ServiceCard key={service.title} service={service} index={index + 3} cardClass="h-[340px] w-full md:w-[340px]" />
             ))}
           </div>
         </div>
@@ -52,76 +52,75 @@ export const ServicesSection = () => {
   );
 };
 
-// Enhanced ServiceCard component for consistent dimensions and subtle polish
-const ServiceCard = ({ service, index, cardClass = "" }: { service: any, index: number, cardClass?: string }) => (
-  <motion.div
-    className={`group bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-500 flex flex-col h-full ${cardClass}`}
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.04, boxShadow: '0 8px 24px rgba(59,130,246,0.10)' }}
-    transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
-    viewport={{ once: true }}
-  >
-    {/* Header section with icon and title */}
-    <div className="flex items-start gap-4 mb-4">
-      <div className="flex-shrink-0 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors duration-300">
-        <service.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+const ServiceCard: React.FC<{ service: Service; index: number; cardClass?: string }> = ({ service, index, cardClass = '' }) => {
+  const Icon = service.icon;
+  return (
+    <motion.div
+      className={`group bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-500 flex flex-col h-full ${cardClass}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.04, boxShadow: '0 8px 24px rgba(59,130,246,0.10)' }}
+      transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <div className="flex items-start gap-4 mb-4">
+        <div className="flex-shrink-0 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors duration-300">
+          <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+        </div>
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white leading-tight">{service.title}</h3>
       </div>
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white leading-tight">{service.title}</h3>
-    </div>
-    {/* Content section with organized bullet points */}
-    <div className="flex-1 flex flex-col justify-center">
-      <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-        {getServiceBullets(service.title).map((desc, i) => (
-          <li key={i} className="flex items-start gap-2">
-            <span className="inline-block w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
-            <span>{desc}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </motion.div>
-);
+      <div className="flex-1 flex flex-col justify-center">
+        <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+          {getServiceBullets(service.title).map((desc, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <span className="inline-block w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+              <span>{desc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
+  );
+};
 
-// Helper function with summarized and more organized content
 function getServiceBullets(title: string): string[] {
   switch (title) {
-    case "Full-Stack Web Development":
+    case 'Full-Stack Web Development':
       return [
-        "Build scalable APIs and microservices architecture",
-        "Implement secure authentication and authorization systems",
-        "Optimize database performance and data modeling",
-        "Set up automated CI/CD pipelines and deployment workflows"
+        'Build scalable APIs and microservices architecture',
+        'Implement secure authentication and authorization systems',
+        'Optimize database performance and data modeling',
+        'Set up automated CI/CD pipelines and deployment workflows',
       ];
-    case "UI/UX Development":
+    case 'UI/UX Development':
       return [
-        "Create responsive, accessible user interfaces",
-        "Convert designs into pixel-perfect, interactive components",
-        "Develop reusable design systems and component libraries",
-        "Ensure cross-browser compatibility and optimal performance"
+        'Create responsive, accessible user interfaces',
+        'Convert designs into pixel-perfect, interactive components',
+        'Develop reusable design systems and component libraries',
+        'Ensure cross-browser compatibility and optimal performance',
       ];
-    case "Mobile App Development":
+    case 'Mobile App Development':
       return [
-        "Develop cross-platform mobile applications",
-        "Integrate cloud services, notifications, and real-time features",
-        "Optimize for native performance and smooth UX",
-        "Handle app store deployment and ongoing maintenance"
+        'Develop cross-platform mobile applications',
+        'Integrate cloud services, notifications, and real-time features',
+        'Optimize for native performance and smooth UX',
+        'Handle app store deployment and ongoing maintenance',
       ];
-    case "Cloud & DevOps":
+    case 'Cloud & DevOps':
       return [
-        "Containerize applications with Docker and Kubernetes",
-        "Automate deployments using modern CI/CD tools",
-        "Design scalable cloud infrastructure on AWS/GCP",
-        "Monitor production systems and troubleshoot issues"
+        'Containerize applications with Docker and Kubernetes',
+        'Automate deployments using modern CI/CD tools',
+        'Design scalable cloud infrastructure on AWS/GCP',
+        'Monitor production systems and troubleshoot issues',
       ];
-    case "AI-Powered Solutions":
+    case 'AI-Powered Solutions':
       return [
-        "Build ML models for NLP and computer vision applications",
-        "Integrate AI capabilities into web and mobile platforms",
-        "Develop intelligent automation using Python and TensorFlow",
-        "Deploy and scale machine learning solutions in the cloud"
+        'Build ML models for NLP and computer vision applications',
+        'Integrate AI capabilities into web and mobile platforms',
+        'Develop intelligent automation using Python and TensorFlow',
+        'Deploy and scale machine learning solutions in the cloud',
       ];
     default:
-      return ["Professional software engineering services"];
+      return ['Professional software engineering services'];
   }
 }
