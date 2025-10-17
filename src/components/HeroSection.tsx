@@ -24,38 +24,21 @@ export const HeroSection = () => {
   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.div
           className="space-y-8"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
         >
-          {/* Greeting */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="flex items-center justify-center space-x-2 text-blue-400"
-          >
-            <motion.span 
-              className="text-lg font-medium"
-              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
-              transition={{ 
-                duration: 0.8, 
-                delay: 0.8, 
-                ease: "easeInOut",
-                times: [0, 0.2, 0.4, 0.6, 0.8, 0.9, 1]
-              }}
-            >
-              👋
-            </motion.span>
+          <div className="flex items-center justify-center space-x-2 text-blue-400">
+            <span className="text-lg font-medium">👋</span>
             <span className="text-lg font-medium">Hello, I&apos;m</span>
-          </motion.div>
+          </div>
 
           {/* Main Name */}
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 100 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
           >
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               {personalInfo.name}
@@ -65,39 +48,27 @@ export const HeroSection = () => {
           {/* Title */}
           <motion.h2
             className="text-lg sm:text-xl md:text-3xl lg:text-4xl text-gray-300 font-light mb-6"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ duration: 0.4 }}
           >
             {personalInfo.title}
           </motion.h2>
 
           {/* Description */}
-          <motion.p
-            className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
             {personalInfo.tagline}
-          </motion.p>
+          </p>
 
           {/* Action Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-10 sm:mb-16 w-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            <motion.button
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 sm:mb-16 w-full">
+            <button
               onClick={() => scrollToAbout()}
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Learn More About Me
-            </motion.button>
-            <motion.button
+            </button>
+            <button
               onClick={() => {
                 const element = document.getElementById('contact');
                 if (element) {
@@ -105,49 +76,36 @@ export const HeroSection = () => {
                 }
               }}
               className="px-8 py-4 border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Get In Touch
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
 
           {/* Social Links */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 sm:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          >
-            <motion.a
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 sm:mb-16">
+            <a
               href={personalInfo.contact.github}
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-gray-800/50 hover:bg-blue-600 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
             >
               <Github className="h-5 w-5" />
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href={personalInfo.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-gray-800/50 hover:bg-blue-600 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
             >
               <Linkedin className="h-5 w-5" />
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href={`mailto:${personalInfo.contact.email}`}
               className="w-12 h-12 bg-gray-800/50 hover:bg-blue-600 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
             >
               <Mail className="h-5 w-5" />
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
 
         </motion.div>
       </div>

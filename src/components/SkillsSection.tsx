@@ -44,9 +44,9 @@ export const SkillsSection = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <motion.div
           className="text-center mb-10 sm:mb-20"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
@@ -72,11 +72,10 @@ export const SkillsSection = () => {
                 className="group relative"
                 variants={bubbleVariants}
                 whileHover={{ 
-                  scale: 1.15,
+                  scale: 1.08,
                   zIndex: 10,
-                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                  transition: { type: "spring", stiffness: 300, damping: 12 }
                 }}
-                whileTap={{ scale: 0.95 }}
               >
                 <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
                   {/* Background gradient on hover */}

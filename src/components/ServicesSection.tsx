@@ -10,9 +10,9 @@ export const ServicesSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
           <motion.h2
@@ -55,10 +55,10 @@ const ServiceCard: React.FC<{ service: Service; index: number; cardClass?: strin
   return (
     <motion.div
       className={`group bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-500 flex flex-col h-full ${cardClass}`}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.04, boxShadow: '0 8px 24px rgba(59,130,246,0.10)' }}
-      transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+      whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(59,130,246,0.10)' }}
+      transition={{ duration: 0.4 }}
       viewport={{ once: true }}
     >
       <div className="flex items-start gap-4 mb-4">

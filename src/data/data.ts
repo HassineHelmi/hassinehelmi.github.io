@@ -248,15 +248,7 @@ export const projects: Project[] = [
     technologies: ['React Native', 'Firebase', 'JavaScript', 'Stripe API'],
     features: ['Cross-platform compatibility', 'Real-time notifications', 'Secure payments', 'User authentication'],
     github: 'https://github.com/HassineHelmi',
-    screenshot: '/public/deal-hub.png'
-  },
-  {
-    title: 'Smart Mirror',
-    description: 'Innovative IoT solution featuring facial recognition, voice commands, and health monitoring capabilities for modern smart homes.',
-    technologies: ['Python', 'OpenCV', 'Raspberry Pi', 'IoT', 'Machine Learning'],
-    features: ['Face recognition', 'Voice control', 'Health monitoring', 'Weather updates'],
-    github: 'https://github.com/HassineHelmi',
-    screenshot: '/public/smart-mirror.png'
+    screenshot: '/dealhub.png'
   },
   {
     title: 'Bankerize UI Toolkit',
@@ -264,7 +256,7 @@ export const projects: Project[] = [
     technologies: ['React', 'TailwindCSS', 'Storybook', 'NX Monorepo', 'TypeScript'],
     features: ['Reusable components', 'Design system', 'Documentation', 'Testing suite'],
     github: 'https://github.com/HassineHelmi',
-    screenshot: '/public/bankerize-ui-toolkit.png'
+    screenshot: '/bankerize-ui-toolkit.png'
   }
 ];
 

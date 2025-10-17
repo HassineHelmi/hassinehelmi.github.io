@@ -25,9 +25,9 @@ export const ProjectsSection = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <motion.div
           className="text-center mb-10 sm:mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4">
@@ -38,16 +38,16 @@ export const ProjectsSection = () => {
           </p>
         </motion.div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               className="group bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -8 }}
               onClick={() => openModal(project)}
             >
                 {/* Real Project Screenshot */}
@@ -74,17 +74,15 @@ export const ProjectsSection = () => {
                   </h3>
                   <div className="flex space-x-2 ml-4">
                     {project.github && (
-                      <motion.a
+                      <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 hover:text-white transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
                         onClick={e => e.stopPropagation()}
                       >
                         <Github className="h-5 w-5" />
-                      </motion.a>
+                      </a>
                     )}
                   </div>
                 </div>
@@ -99,17 +97,13 @@ export const ProjectsSection = () => {
                   </h4>
                   <ul className="space-y-1">
                     {project.features.map((feature, featureIndex) => (
-                      <motion.li
+                      <li
                         key={featureIndex}
                         className="flex items-center text-xs sm:text-base text-gray-600 dark:text-gray-400"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: featureIndex * 0.1 }}
-                        viewport={{ once: true }}
                       >
                         <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
                         {feature}
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -120,21 +114,12 @@ export const ProjectsSection = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1 sm:gap-2">
                     {project.technologies.map((tech, techIndex) => (
-                      <motion.span
+                      <span
                         key={techIndex}
                         className="px-2 sm:px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-xs sm:text-sm font-medium"
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ 
-                          duration: 0.3, 
-                          delay: techIndex * 0.05,
-                          type: "spring",
-                          stiffness: 100
-                        }}
-                        viewport={{ once: true }}
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -149,14 +134,14 @@ export const ProjectsSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             >
               <motion.div
                 className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl max-w-4xl w-full mx-2 sm:mx-4 p-4 sm:p-8 relative flex flex-col items-center overflow-y-auto max-h-[90vh]"
                 initial={{ scale: 0.8, opacity: 0, y: 80 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.8, opacity: 0, y: 80 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30, duration: 0.4 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30, duration: 0.2 }}
               >
                 <button
                   className="absolute top-6 right-6 text-gray-500 hover:text-gray-900 dark:hover:text-white text-3xl font-bold"
