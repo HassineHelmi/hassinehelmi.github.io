@@ -7,10 +7,10 @@ import { personalInfo } from '../data/data';
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -24,7 +24,7 @@ export const AboutSection = () => {
           </p>
         </motion.div>
 
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div
             className="mb-12 lg:mb-0"
             initial={{ opacity: 0, x: -50 }}
@@ -33,7 +33,7 @@ export const AboutSection = () => {
             viewport={{ once: true }}
           >
             {/* Professional Photo */}
-            <div className="relative w-full max-w-sm mx-auto lg:max-w-full">
+            <div className="relative w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full">
               <motion.div
                 className="relative w-80 h-80 mx-auto"
                 whileHover={{ scale: 1.02 }}
@@ -66,16 +66,16 @@ export const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center text-gray-600 dark:text-gray-400 mb-6">
+            <div className="flex items-center text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
               <MapPin className="h-5 w-5 mr-2" />
               <span>{personalInfo.location}</span>
             </div>
 
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               {personalInfo.bio}
             </p>
 
-            <div className="grid grid-cols-2 gap-6 pt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 sm:pt-6">
               <motion.div
                 className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl border border-blue-200 dark:border-blue-700"
                 whileHover={{ scale: 1.05, y: -5 }}

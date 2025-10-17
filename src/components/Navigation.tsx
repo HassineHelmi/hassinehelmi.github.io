@@ -45,7 +45,7 @@ export const Navigation = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-4 relative">
           <motion.div
             className="text-2xl font-bold text-gray-900 dark:text-white"
             whileHover={{ scale: 1.05 }}
@@ -66,11 +66,12 @@ export const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation Toggle */}
-          <div className="md:hidden flex items-center space-x-4">
+          {/* Mobile Navigation Toggle - absolutely positioned */}
+          <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="absolute top-2 right-2 p-2 rounded focus:outline-none bg-white/80 dark:bg-gray-900/80 shadow-md z-50 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

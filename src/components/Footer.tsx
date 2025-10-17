@@ -26,9 +26,9 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-gray-900 dark:bg-black text-white py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Brand Section */}
           <motion.div
             className="md:col-span-1"
@@ -37,8 +37,8 @@ export const Footer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-4">{personalInfo.name}</h3>
-            <p className="text-gray-400 mb-4">
+            <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">{personalInfo.name}</h3>
+            <p className="text-gray-400 mb-2 sm:mb-4">
               {personalInfo.title}
             </p>
             <p className="text-gray-400 text-sm">
@@ -54,8 +54,8 @@ export const Footer = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <div className="space-y-2">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4">Quick Links</h4>
+            <div className="space-y-1 sm:space-y-2">
               {['About', 'Skills', 'Services', 'Projects', 'Contact'].map((item) => (
                 <button
                   key={item}
@@ -81,8 +81,8 @@ export const Footer = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-4">Let&apos;s Connect</h4>
-            <div className="flex space-x-4 mb-4">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4">Let&apos;s Connect</h4>
+            <div className="flex flex-wrap gap-2 sm:gap-4 mb-2 sm:mb-4">
               {socialLinks.map((link) => (
                 <motion.a
                   key={link.label}
@@ -106,18 +106,18 @@ export const Footer = () => {
 
         {/* Bottom Section */}
         <motion.div
-          className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="flex items-center text-gray-400 text-xs sm:text-sm mb-2 md:mb-0">
             <span>© {currentYear} {personalInfo.name}. Made with</span>
             <Heart className="h-4 w-4 text-red-500 mx-1 animate-pulse" />
             <span>and lots of ☕</span>
           </div>
-          <div className="text-gray-400 text-sm">
+          <div className="text-gray-400 text-xs sm:text-sm">
             Built with Next.js & TailwindCSS
           </div>
         </motion.div>

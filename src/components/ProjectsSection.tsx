@@ -21,24 +21,24 @@ export const ProjectsSection = () => {
     setSelectedProject(null);
   };
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400">
             A showcase of my recent work and technical achievements
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -51,7 +51,7 @@ export const ProjectsSection = () => {
               onClick={() => openModal(project)}
             >
                 {/* Real Project Screenshot */}
-                <div className="h-48 flex items-center justify-center relative overflow-hidden bg-gray-200 dark:bg-gray-700">
+                <div className="h-36 sm:h-48 flex items-center justify-center relative overflow-hidden bg-gray-200 dark:bg-gray-700">
                   {project.screenshot ? (
                     <Image
                       src={project.screenshot}
@@ -69,7 +69,7 @@ export const ProjectsSection = () => {
 
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
                   <div className="flex space-x-2 ml-4">
@@ -89,19 +89,19 @@ export const ProjectsSection = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                   {project.description}
                 </p>
 
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">
                     Key Features:
                   </h4>
                   <ul className="space-y-1">
                     {project.features.map((feature, featureIndex) => (
                       <motion.li
                         key={featureIndex}
-                        className="flex items-center text-gray-600 dark:text-gray-400"
+                        className="flex items-center text-xs sm:text-base text-gray-600 dark:text-gray-400"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: featureIndex * 0.1 }}
@@ -115,14 +115,14 @@ export const ProjectsSection = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">
                     Technologies:
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <motion.span
                         key={techIndex}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium"
+                        className="px-2 sm:px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-xs sm:text-sm font-medium"
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ 
@@ -152,7 +152,7 @@ export const ProjectsSection = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.div
-                className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl max-w-4xl w-full mx-4 p-8 relative flex flex-col items-center"
+                className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl max-w-4xl w-full mx-2 sm:mx-4 p-4 sm:p-8 relative flex flex-col items-center overflow-y-auto max-h-[90vh]"
                 initial={{ scale: 0.8, opacity: 0, y: 80 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.8, opacity: 0, y: 80 }}
@@ -176,14 +176,14 @@ export const ProjectsSection = () => {
                     />
                   </div>
                 )}
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                <h3 className="text-xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4 text-center">
                   {selectedProject.title}
                 </h3>
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 text-center">
+                <p className="text-sm sm:text-lg text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 text-center">
                   {selectedProject.description}
                 </p>
                 <button
-                  className="mt-2 px-8 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors w-full max-w-xs"
+                  className="mt-2 px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors w-full max-w-xs"
                   onClick={closeModal}
                 >
                   Close
@@ -195,20 +195,20 @@ export const ProjectsSection = () => {
         </div>
 
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-10 sm:mt-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
             Want to see more of my work?
           </p>
           <motion.a
             href="https://github.com/HassineHelmi"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center px-4 sm:px-8 py-2 sm:py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors transform hover:scale-105 shadow-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

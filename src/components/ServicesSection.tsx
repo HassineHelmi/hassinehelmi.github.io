@@ -35,17 +35,15 @@ export const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="flex flex-col gap-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.slice(0, 3).map((service, index) => (
-              <ServiceCard key={service.title} service={service} index={index} cardClass="h-[340px]" />
-            ))}
-          </div>
-          <div className="flex justify-center gap-8">
-            {services.slice(3, 5).map((service, index) => (
-              <ServiceCard key={service.title} service={service} index={index + 3} cardClass="h-[340px] w-full md:w-[340px]" />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <ServiceCard 
+              key={service.title} 
+              service={service} 
+              index={index} 
+              cardClass={`h-[340px] ${index >= 3 ? 'md:col-span-1 lg:col-span-1' : ''}`}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -40,19 +40,19 @@ export const SkillsSection = () => {
   const allSkills = skillCategories.flatMap(category => category.skills);
 
   return (
-    <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Skills & Technologies
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             The tools and technologies I use to bring ideas to life
           </p>
         </motion.div>
@@ -65,7 +65,7 @@ export const SkillsSection = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
             {allSkills.map((skill, index) => (
               <motion.div
                 key={`${skill.name}-bubble`}
@@ -78,13 +78,13 @@ export const SkillsSection = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
+                <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
                   {/* Background gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Content: Only logo and title */}
                   <div className="relative z-10 flex items-center">
-                    <skill.icon className="h-6 w-6 md:h-8 md:w-8 text-blue-600 dark:text-blue-400 mr-3 md:mr-4 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors duration-300" />
-                    <span className="text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-blue-600 dark:text-blue-400 mr-2 sm:mr-3 md:mr-4 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors duration-300" />
+                    <span className="text-xs sm:text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
                       {skill.name}
                     </span>
                   </div>
