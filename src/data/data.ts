@@ -23,11 +23,9 @@ import {
   SiFirebase, 
   SiDocker, 
   SiGit, 
-  SiGithub, 
   SiFigma, 
   SiFlutter, 
-  SiAndroid,
-  SiAmazon
+  SiAndroid
 } from 'react-icons/si';
 
 // Types
@@ -59,17 +57,17 @@ export interface Certification {
 export interface Service {
   title: string;
   description: string;
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   features: string[];
   technologies: string[];
 }
 
 export interface SkillCategory {
   title: string;
-  icon: unknown;
+  icon: React.ComponentType<{ className?: string }>;
   skills: {
     name: string;
-    icon: unknown;
+    icon: React.ComponentType<{ className?: string }>;
     level: number;
   }[];
 }

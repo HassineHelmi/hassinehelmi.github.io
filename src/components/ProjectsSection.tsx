@@ -1,7 +1,8 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
+import Image from 'next/image';
 import { projects } from '../data/data';
 import { useState } from 'react';
 import type { Project } from '../data/data';
@@ -52,9 +53,11 @@ export const ProjectsSection = () => {
                 {/* Real Project Screenshot */}
                 <div className="h-48 flex items-center justify-center relative overflow-hidden bg-gray-200 dark:bg-gray-700">
                   {project.screenshot ? (
-                    <img
+                    <Image
                       src={project.screenshot}
                       alt={project.title + ' screenshot'}
+                      width={400}
+                      height={192}
                       className="w-full h-full object-cover object-center rounded-t-2xl"
                     />
                   ) : (
@@ -164,9 +167,11 @@ export const ProjectsSection = () => {
                 </button>
                 {selectedProject.screenshot && (
                   <div className="w-full mb-6 flex justify-center items-center">
-                    <img
+                    <Image
                       src={selectedProject.screenshot}
                       alt={selectedProject.title + ' screenshot'}
+                      width={800}
+                      height={600}
                       className="w-full max-h-[60vh] object-contain rounded-2xl shadow-lg"
                     />
                   </div>
