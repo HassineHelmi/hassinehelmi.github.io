@@ -9,8 +9,8 @@ export const SkillsSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2
+        staggerChildren: 0.05,
+        delayChildren: 0.1
       }
     }
   };
@@ -18,20 +18,13 @@ export const SkillsSection = () => {
   const bubbleVariants = {
     hidden: { 
       opacity: 0, 
-      scale: 0,
-      y: 50,
-      rotate: -10
+      scale: 0.8
     },
     visible: {
       opacity: 1,
       scale: 1,
-      y: 0,
-      rotate: 0,
       transition: { 
-        type: "spring" as const,
-        stiffness: 200,
-        damping: 15,
-        duration: 0.6
+        duration: 0.3
       }
     }
   };
@@ -72,46 +65,25 @@ export const SkillsSection = () => {
                 className="group relative"
                 variants={bubbleVariants}
                 whileHover={{ 
-                  scale: 1.08,
-                  zIndex: 10,
-                  transition: { type: "spring", stiffness: 300, damping: 12 }
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
                 }}
               >
-                <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
+                <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
                   {/* Background gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {/* Content: Only logo and title */}
                   <div className="relative z-10 flex items-center">
-                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-blue-600 dark:text-blue-400 mr-2 sm:mr-3 md:mr-4 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors duration-300" />
-                    <span className="text-xs sm:text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-blue-600 dark:text-blue-400 mr-2 sm:mr-3 md:mr-4 transition-colors duration-300" />
+                    <span className="text-xs sm:text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
                       {skill.name}
                     </span>
                   </div>
                 </div>
-                {/* Floating animation */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl bg-blue-500/20 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0, 0.3, 0]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.1
-                  }}
-                />
               </motion.div>
             ))}
           </div>
         </motion.div>
-
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl animate-pulse delay-500"></div>
-        </div>
       </div>
     </section>
   );
