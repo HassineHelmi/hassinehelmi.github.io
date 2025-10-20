@@ -29,7 +29,6 @@ export const Footer = () => {
     <footer className="bg-gray-900 dark:bg-black text-white py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          {/* Brand Section */}
           <motion.div
             className="md:col-span-1"
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +45,6 @@ export const Footer = () => {
             </p>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div
             className="md:col-span-1"
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +53,7 @@ export const Footer = () => {
             viewport={{ once: true }}
           >
             <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4">Quick Links</h4>
-            <div className="space-y-1 sm:space-y-2">
+            <div className="space-y-1 sm:space-y-2" role="navigation" aria-label="Footer">
               {['About', 'Skills', 'Services', 'Projects', 'Resume', 'Contact'].map((item) => (
                 <button
                   key={item}
@@ -66,6 +64,7 @@ export const Footer = () => {
                     }
                   }}
                   className="block text-gray-400 hover:text-white transition-colors"
+                  aria-label={`Go to ${item}`}
                 >
                   {item}
                 </button>
@@ -73,7 +72,6 @@ export const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Connect Section */}
           <motion.div
             className="md:col-span-1"
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +102,6 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Section */}
         <motion.div
           className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-2"
           initial={{ opacity: 0, y: 20 }}

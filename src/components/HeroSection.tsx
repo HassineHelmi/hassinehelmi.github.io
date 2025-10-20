@@ -3,18 +3,18 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/data';
+import { useCallback } from 'react';
 
 export const HeroSection = () => {
-  const scrollToAbout = () => {
+  const scrollToAbout = useCallback(() => {
     const element = document.getElementById('about');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-gray-800 pt-16 sm:pt-20 relative overflow-hidden">
-      {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -33,7 +33,6 @@ export const HeroSection = () => {
             <span className="text-lg font-medium">Hello, I&apos;m</span>
           </div>
 
-          {/* Main Name */}
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-4"
             initial={{ opacity: 0, scale: 0.5 }}
@@ -45,7 +44,6 @@ export const HeroSection = () => {
             </span>
           </motion.h1>
 
-          {/* Title */}
           <motion.h2
             className="text-lg sm:text-xl md:text-3xl lg:text-4xl text-gray-300 font-light mb-6"
             initial={{ opacity: 0, y: 10 }}
@@ -55,12 +53,10 @@ export const HeroSection = () => {
             {personalInfo.title}
           </motion.h2>
 
-          {/* Description */}
           <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
             {personalInfo.tagline}
           </p>
 
-          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 sm:mb-16 w-full">
             <button
               onClick={() => scrollToAbout()}
@@ -81,7 +77,6 @@ export const HeroSection = () => {
             </button>
           </div>
 
-          {/* Social Links */}
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 sm:mb-16">
             <a
               href={personalInfo.contact.github}
@@ -110,7 +105,6 @@ export const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Animated Scroll Down Indicator anchored to section bottom */}
       <motion.div
         className="absolute bottom-1 sm:bottom-3 left-1/2 -translate-x-1/2 z-20"
         initial={{ opacity: 0, y: -20 }}

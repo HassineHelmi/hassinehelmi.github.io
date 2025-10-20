@@ -6,10 +6,9 @@ import { useState, useEffect } from 'react';
 
 export const ResumeSection = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const resumePath = '/HelmiHassineResumeEN.pdf';
+  const resumePath = '/ResumeHassineHelmiEN.pdf';
 
   useEffect(() => {
-    // Set a timeout to hide loading after 2 seconds as fallback
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -51,7 +50,6 @@ export const ResumeSection = () => {
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
-          {/* Download Button */}
           <div className="flex justify-center mb-8">
             <button
               onClick={handleDownload}
@@ -62,9 +60,7 @@ export const ResumeSection = () => {
             </button>
           </div>
 
-          {/* PDF Viewer */}
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 relative min-h-[600px] md:min-h-[800px]">
-            {/* Loading Indicator - only shows while loading */}
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800 z-20">
                 <div className="text-center">
@@ -74,7 +70,6 @@ export const ResumeSection = () => {
               </div>
             )}
 
-            {/* PDF Embed - Desktop */}
             <iframe
               src={resumePath}
               className="w-full h-[600px] md:h-[800px] lg:h-[1000px]"
@@ -82,7 +77,6 @@ export const ResumeSection = () => {
               onLoad={() => setIsLoading(false)}
             />
 
-            {/* Fallback Message */}
             <noscript>
               <div className="p-8 text-center bg-gray-100 dark:bg-gray-800">
                 <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -100,7 +94,6 @@ export const ResumeSection = () => {
             </noscript>
           </div>
 
-          {/* Additional Download Option Below */}
           <div className="text-center mt-8">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
               Can&apos;t view the PDF? Click below to download it directly.

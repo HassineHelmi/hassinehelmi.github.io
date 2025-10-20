@@ -3,11 +3,12 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, Github, Linkedin, MessageSquare, Send } from 'lucide-react';
 import { personalInfo } from '../data/data';
+import { useCallback } from 'react';
 
 export const ContactSection = () => {
-  const handleEmailClick = () => {
+  const handleEmailClick = useCallback(() => {
     window.location.href = `mailto:${personalInfo.contact.email}`;
-  };
+  }, []);
 
   const contactMethods = [
     {
@@ -49,14 +50,12 @@ export const ContactSection = () => {
 
   return (
     <section id="contact" className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main CTA */}
         <motion.div
           className="text-center mb-16 sm:mb-20"
           initial={{ opacity: 0, y: 40 }}
@@ -83,7 +82,6 @@ export const ContactSection = () => {
             I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </motion.p>
 
-          {/* Primary CTA Button with Animation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +94,6 @@ export const ContactSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Animated background */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600"
                 initial={{ x: '100%' }}
@@ -117,7 +114,6 @@ export const ContactSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Contact Methods - Horizontal Layout */}
         <motion.div
           className="flex flex-wrap justify-center items-center gap-4 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -138,7 +134,6 @@ export const ContactSection = () => {
               viewport={{ once: true }}
               whileHover={{ y: -3, scale: 1.02 }}
             >
-              {/* Gradient overlay on hover */}
               <div className={`absolute inset-0 bg-gradient-to-r ${method.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
               
               <div className={`w-10 h-10 bg-gradient-to-r ${method.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 relative z-10`}>

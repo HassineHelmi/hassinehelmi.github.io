@@ -29,7 +29,6 @@ export const SkillsSection = () => {
     }
   };
 
-  // Get all skills from all categories, but remove category info and filter out all categories
   const allSkills = skillCategories.flatMap(category => category.skills);
 
   return (
@@ -50,7 +49,6 @@ export const SkillsSection = () => {
           </p>
         </motion.div>
 
-        {/* Only logo and title for each skill, no categories */}
         <motion.div
           className="relative"
           variants={containerVariants}
@@ -70,9 +68,7 @@ export const SkillsSection = () => {
                 }}
               >
                 <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
-                  {/* Background gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {/* Content: Only logo and title */}
                   <div className="relative z-10 flex items-center">
                     <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-blue-600 dark:text-blue-400 mr-2 sm:mr-3 md:mr-4 transition-colors duration-300" />
                     <span className="text-xs sm:text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">

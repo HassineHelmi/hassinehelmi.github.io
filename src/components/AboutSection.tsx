@@ -32,14 +32,12 @@ export const AboutSection = () => {
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
-            {/* Professional Photo */}
             <div className="relative w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full">
               <motion.div
                 className="relative w-80 h-80 mx-auto"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                {/* Rounded square container */}
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                   <Image
                     src="/profilepicture.jpg"
@@ -47,12 +45,11 @@ export const AboutSection = () => {
                     width={320}
                     height={320}
                     className="w-full h-full object-cover object-center"
-                    priority
+                    loading="lazy"
                   />
                 </div>
               </motion.div>
               
-              {/* Floating background elements */}
               <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
               <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
               <div className="absolute top-1/2 right-0 w-16 h-16 bg-pink-500/10 rounded-full blur-xl animate-pulse delay-500"></div>

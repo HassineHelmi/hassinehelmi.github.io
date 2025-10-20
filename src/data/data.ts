@@ -1,13 +1,4 @@
-import { 
-  Code, 
-  Database, 
-  Smartphone, 
-  Settings,
-  Globe,
-  Layers,
-  Cloud,
-  Brain
-} from 'lucide-react';
+import { Code, Database, Smartphone, Settings, Globe, Layers, Cloud, Brain } from 'lucide-react';
 import { 
   SiJavascript, 
   SiTypescript, 
@@ -28,7 +19,6 @@ import {
   SiAndroid
 } from 'react-icons/si';
 
-// Types
 export interface Experience {
   title: string;
   company: string;
@@ -72,7 +62,6 @@ export interface SkillCategory {
   }[];
 }
 
-// Personal Information
 export const personalInfo = {
   name: "Helmi Hassine",
   title: "Full-Stack Developer",
@@ -88,7 +77,6 @@ export const personalInfo = {
   }
 };
 
-// Skills Data
 export const skillCategories: SkillCategory[] = [
   {
     title: 'Programming Languages',
@@ -136,7 +124,6 @@ export const skillCategories: SkillCategory[] = [
   }
 ];
 
-// Services Data
 export const services: Service[] = [
   {
     title: "Full-Stack Web Development",
@@ -200,7 +187,6 @@ export const services: Service[] = [
   }
 ];
 
-// Experience Data
 export const experiences: Experience[] = [
   {
     title: 'End of Studies Internship',
@@ -232,7 +218,6 @@ export const experiences: Experience[] = [
   }
 ];
 
-// Projects Data
 export const projects: Project[] = [
   {
     title: 'Talent Cloud',
@@ -260,7 +245,6 @@ export const projects: Project[] = [
   }
 ];
 
-// Education Data
 export const education = [
   {
     degree: 'Software Engineering Degree',
@@ -276,7 +260,6 @@ export const education = [
   }
 ];
 
-// Certifications Data
 export const certifications: Certification[] = [
   {
     title: 'Microsoft Certified: Azure Fundamentals',

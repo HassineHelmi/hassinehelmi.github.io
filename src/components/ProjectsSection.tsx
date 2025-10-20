@@ -50,7 +50,6 @@ export const ProjectsSection = () => {
               whileHover={{ y: -8 }}
               onClick={() => openModal(project)}
             >
-                {/* Real Project Screenshot */}
                 <div className="h-36 sm:h-48 flex items-center justify-center relative overflow-hidden bg-gray-200 dark:bg-gray-700">
                   {project.screenshot ? (
                     <Image
@@ -59,6 +58,7 @@ export const ProjectsSection = () => {
                       width={400}
                       height={192}
                       className="w-full h-full object-cover object-center rounded-t-2xl"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="text-4xl font-bold text-gray-400 opacity-30">
@@ -126,7 +126,6 @@ export const ProjectsSection = () => {
               </div>
             </motion.div>
           ))}
-        {/* Modal for project details with animation and blurry background */}
         <AnimatePresence>
           {isModalOpen && selectedProject && (
             <motion.div
@@ -158,6 +157,7 @@ export const ProjectsSection = () => {
                       width={800}
                       height={600}
                       className="w-full max-h-[60vh] object-contain rounded-2xl shadow-lg"
+                      loading="eager"
                     />
                   </div>
                 )}
