@@ -8,6 +8,7 @@ import {
   SkillsSection,
   ServicesSection,
   ProjectsSection,
+  ResumeSection,
   ContactSection,
   Footer
 } from '../components';
@@ -22,6 +23,7 @@ export default function Home() {
       <SkillsSection />
       <ServicesSection />
       <ProjectsSection />
+      <ResumeSection />
       <ContactSection />
       <Footer />
     </div>

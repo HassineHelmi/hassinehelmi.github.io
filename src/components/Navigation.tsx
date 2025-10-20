@@ -30,6 +30,7 @@ export const Navigation = () => {
     { name: 'Skills', id: 'skills' },
     { name: 'Services', id: 'services' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Resume', id: 'resume' },
     { name: 'Contact', id: 'contact' }
   ];
 
