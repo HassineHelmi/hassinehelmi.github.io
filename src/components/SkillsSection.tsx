@@ -57,7 +57,7 @@ export const SkillsSection = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-            {allSkills.map((skill, index) => (
+            {allSkills.map((skill) => (
               <motion.div
                 key={`${skill.name}-bubble`}
                 className="group relative"

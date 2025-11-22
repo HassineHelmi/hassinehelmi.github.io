@@ -35,13 +35,13 @@ export const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {services.map((service, index) => (
             <ServiceCard 
               key={service.title} 
               service={service} 
               index={index} 
-              cardClass={`h-[340px] ${index >= 3 ? 'md:col-span-1 lg:col-span-1' : ''}`}
+              cardClass={`h-[340px] md:col-span-1 lg:col-span-2 ${index === 3 ? 'lg:col-start-2' : ''}`}
             />
           ))}
         </div>
@@ -50,7 +50,7 @@ export const ServicesSection = () => {
   );
 };
 
-const ServiceCard: React.FC<{ service: Service; index: number; cardClass?: string }> = ({ service, index, cardClass = '' }) => {
+const ServiceCard: React.FC<{ service: Service; index: number; cardClass?: string }> = ({ service, cardClass = '' }) => {
   const Icon = service.icon;
   return (
     <motion.div
