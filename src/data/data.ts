@@ -65,9 +65,8 @@ export interface SkillCategory {
 export const personalInfo = {
   name: "Helmi Hassine",
   title: "Full-Stack Developer",
-  tagline: "Hi, I'm Helmi Hassine -  a passionate Full-Stack Developer dedicated to building robust, scalable, and innovative solutions.",
   location: "Monastir, Tunisia",
-  bio: "I am a software engineer from Monastir, Tunisia, with a Software Engineering degree from EPI Digital School. I have experience building full-stack applications, architecting scalable solutions, and collaborating with teams using Agile/Scrum methodologies. I enjoy creating elegant UI components and solving complex problems with efficient code.",
+  bio: "I am a Full-Stack Developer from Tunisia, with a Computer Science degree from EPI Digital School. I have experience building full-stack applications, architecting scalable solutions, and collaborating with teams. I enjoy creating elegant UI components and solving complex problems with efficient code.",
   contact: {
     phone: "+216 28372002",
     email: "helmi.hassine1@gmail.com",

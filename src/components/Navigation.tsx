@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { MobileMenu } from './MobileMenu';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,32 +104,14 @@ export const Navigation = () => {
       </motion.nav>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl md:hidden flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="flex flex-col items-center space-y-6 p-4 w-full max-w-sm">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-2xl font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 + 0.1 }}
-                >
-                  {item.name}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu Overlay */}
+      <MobileMenu 
+        isOpen={isOpen} 
+        onClose={() => setIsOpen(false)} 
+        items={navItems} 
+        onNavigate={(id) => scrollToSection(id)} 
+      />
+      {/* Removed inline AnimatePresence */}
     </>
   );
 };
