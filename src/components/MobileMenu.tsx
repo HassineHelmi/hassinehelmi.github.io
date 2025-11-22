@@ -18,7 +18,7 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
       y: '-100%',
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1]
+        ease: [0.76, 0, 0.24, 1] as const
       }
     },
     open: {
@@ -26,7 +26,7 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
       y: '0%',
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as const,
         staggerChildren: 0.1,
         delayChildren: 0.2
       }
@@ -35,7 +35,7 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
 
   const itemVariants = {
     closed: { y: 50, opacity: 0 },
-    open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } }
+    open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] as const } }
   };
 
   return (

@@ -79,7 +79,6 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            {personalInfo.tagline}
           </motion.p>
 
           <motion.div 
