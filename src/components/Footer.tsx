@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Coffee, Dog } from 'lucide-react';
 import { personalInfo } from '../data/data';
 
 export const Footer = () => {
@@ -100,7 +100,8 @@ export const Footer = () => {
           <div className="flex items-center text-slate-500 dark:text-slate-500 text-sm">
             <span>Made with</span>
             <Heart className="h-4 w-4 text-red-500 mx-1 animate-pulse" />
-            <span>using Next.js & Tailwind</span>
+            <span>and lots of</span>
+            <Coffee className="h-4 w-4 text-yellow-500 mx-1 animate-pulse" />
           </div>
         </div>
       </div>
