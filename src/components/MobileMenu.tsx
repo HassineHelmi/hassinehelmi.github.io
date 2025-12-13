@@ -64,7 +64,7 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
 
           {/* Navigation Links */}
           <nav className="flex-1 flex flex-col justify-center px-8 space-y-2">
-            {items.map((item, index) => (
+            {items.map((item) => (
               <motion.button
                 key={item.id}
                 variants={itemVariants}

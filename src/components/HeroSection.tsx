@@ -6,6 +6,8 @@ import { personalInfo } from '../data/data';
 import { useCallback } from 'react';
 import { Button } from './Button';
 
+import { ParallaxElement } from './ParallaxElement';
+
 export const HeroSection = () => {
   const scrollToAbout = useCallback(() => {
     const element = document.getElementById('about');
@@ -16,11 +18,17 @@ export const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pt-16 sm:pt-20 relative overflow-hidden">
-      {/* Abstract Background Elements */}
+      {/* Abstract Background Elements with Parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse mix-blend-multiply dark:mix-blend-screen"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000 mix-blend-multiply dark:mix-blend-screen"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500 mix-blend-multiply dark:mix-blend-screen"></div>
+        <ParallaxElement speed={-0.2} className="absolute top-20 left-10">
+          <div className="w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse mix-blend-multiply dark:mix-blend-screen"></div>
+        </ParallaxElement>
+        <ParallaxElement speed={0.3} className="absolute bottom-20 right-10">
+          <div className="w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000 mix-blend-multiply dark:mix-blend-screen"></div>
+        </ParallaxElement>
+        <ParallaxElement speed={0.1} className="absolute top-1/2 left-1/3">
+          <div className="w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500 mix-blend-multiply dark:mix-blend-screen"></div>
+        </ParallaxElement>
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
       </div>
 

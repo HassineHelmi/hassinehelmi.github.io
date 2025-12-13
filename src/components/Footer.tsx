@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, Coffee, Dog } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
 import { personalInfo } from '../data/data';
 
 export const Footer = () => {

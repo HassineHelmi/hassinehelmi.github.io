@@ -223,7 +223,7 @@ export const projects: Project[] = [
     description: 'A comprehensive full-stack recruitment platform featuring advanced candidate matching, real-time communication, and integrated authentication systems.',
     technologies: ['Next.js', 'Spring Boot', 'Keycloak', 'AWS', 'PostgreSQL', 'TypeScript'],
     features: ['AI-powered matching', 'Real-time messaging', 'Advanced filtering', 'Cloud deployment'],
-    github: 'https://github.com/HassineHelmi/TalentCloud',
+    github: 'https://github.com/HassineHelmi',
     screenshot: '/talent-cloud.png'
   },
   {

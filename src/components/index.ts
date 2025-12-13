@@ -8,3 +8,4 @@ export { ProjectsSection } from './ProjectsSection';
 export { ResumeSection } from './ResumeSection';
 export { ContactSection } from './ContactSection';
 export { Footer } from './Footer';
+export * from './ParallaxElement';
