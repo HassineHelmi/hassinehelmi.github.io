@@ -3,16 +3,9 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, Github, Linkedin, MessageSquare, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data/data';
-import { useCallback } from 'react';
 import { Button } from './Button';
 
-import { ParallaxElement } from './ParallaxElement';
-
 export const ContactSection = () => {
-  const handleEmailClick = useCallback(() => {
-    window.location.href = `mailto:${personalInfo.contact.email}`;
-  }, []);
-
   const contactMethods = [
     {
       icon: Mail,
@@ -52,18 +45,8 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 sm:py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <ParallaxElement speed={0.2} className="absolute top-1/4 -left-20">
-          <div className="w-96 h-96 bg-blue-500/10 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"></div>
-        </ParallaxElement>
-        <ParallaxElement speed={-0.1} className="absolute bottom-1/4 -right-20">
-          <div className="w-96 h-96 bg-purple-500/10 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-screen"></div>
-        </ParallaxElement>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" className="py-20 sm:py-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 40 }}
@@ -96,7 +79,7 @@ export const ContactSection = () => {
             viewport={{ once: true }}
           >
             <Button
-              onClick={handleEmailClick}
+              onClick={() => { window.location.href = `mailto:${personalInfo.contact.email}`; }}
               size="lg"
               className="group text-lg px-8 py-4 rounded-full"
             >

@@ -3,83 +3,104 @@
 import { motion } from 'framer-motion';
 import { skillCategories } from '../data/data';
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, delay: i * 0.1, ease: 'easeOut' as const },
+  }),
+};
+
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.25 } },
+};
+
+const chipContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.1 } },
+};
+
 export const SkillsSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const bubbleVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { 
-        duration: 0.3
-      }
-    }
-  };
-
-  const allSkills = skillCategories.flatMap(category => category.skills);
-
   return (
-    <section id="skills" className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+    <section id="skills" className="py-16 sm:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Heading */}
         <motion.div
-          className="text-center mb-10 sm:mb-20"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Skills & Technologies
           </h2>
-          <p className="text-base sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             The tools and technologies I use to bring ideas to life
           </p>
         </motion.div>
 
-        <motion.div
-          className="relative"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8">
-            {allSkills.map((skill) => (
+        {/* 2×2 category cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {skillCategories.map((category, i) => {
+            const CategoryIcon = category.icon;
+            return (
               <motion.div
-                key={`${skill.name}-bubble`}
-                className="group relative"
-                variants={bubbleVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
+                key={category.title}
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden"
               >
-                <div className="flex items-center bg-white dark:bg-gray-900 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer border border-gray-200 dark:border-gray-700 group-hover:border-blue-300 dark:group-hover:border-blue-600 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10 flex items-center">
-                    <skill.icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-blue-600 dark:text-blue-400 mr-2 sm:mr-3 md:mr-4 transition-colors duration-300" />
-                    <span className="text-xs sm:text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
-                      {skill.name}
-                    </span>
+                {/* Card top accent bar */}
+                <div className="h-1 w-full bg-gradient-to-r from-blue-500 to-indigo-500" />
+
+                <div className="p-6">
+                  {/* Card header */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-xl group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors duration-300">
+                      <CategoryIcon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      {category.title}
+                    </h3>
                   </div>
+
+                  {/* Skill chips */}
+                  <motion.div
+                    className="flex flex-wrap gap-2"
+                    variants={chipContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                  >
+                    {category.skills.map((skill) => {
+                      const SkillIcon = skill.icon;
+                      return (
+                        <motion.div
+                          key={skill.name}
+                          variants={chipVariants}
+                          className="flex items-center gap-2 px-4 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/10 rounded-lg transition-colors duration-200 cursor-default"
+                        >
+                          <SkillIcon className="h-5 w-5 text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                          <span className="text-sm font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                            {skill.name}
+                          </span>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
                 </div>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

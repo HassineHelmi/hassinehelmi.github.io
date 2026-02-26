@@ -166,7 +166,7 @@ export const services: Service[] = [
     icon: Cloud,
     features: [
       "Docker Containerization",
-      "AWS Lambda Functions",
+      "AWS Services Integration",
       "CI/CD Pipeline Setup",
       "Cloud Architecture Design"
     ],
@@ -177,7 +177,7 @@ export const services: Service[] = [
     description: "Intelligent applications with machine learning and AI integration capabilities.",
     icon: Brain,
     features: [
-      "Resume Parsing Systems",
+      "AI-Parsing Systems",
       "Recommendation Engines",
       "Computer Vision Applications",
       "Natural Language Processing"

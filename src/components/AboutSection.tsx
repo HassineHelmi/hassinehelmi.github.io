@@ -7,7 +7,7 @@ import { personalInfo } from '../data/data';
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-16 sm:py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-10 sm:mb-16"
@@ -16,15 +16,15 @@ export const AboutSection = () => {
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             About Me
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
             Get to know more about my background and passion for technology
           </p>
         </motion.div>
 
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div
             className="mb-12 lg:mb-0"
             initial={{ opacity: 0, x: -40 }}
@@ -49,20 +49,26 @@ export const AboutSection = () => {
                   />
                 </div>
               </motion.div>
-              
-              <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-              <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-              <div className="absolute top-1/2 right-0 w-16 h-16 bg-pink-500/10 rounded-full blur-xl animate-pulse delay-500"></div>
+
+              <div className="absolute -top-8 -right-8 w-24 h-24 bg-blue-500/10 rounded-full blur-xl animate-pulse" />
+              <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000" />
+              <div className="absolute top-1/2 right-0 w-16 h-16 bg-pink-500/10 rounded-full blur-xl animate-pulse delay-500" />
             </div>
           </motion.div>
 
-          <div className="space-y-6">
-            <div className="flex items-center text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
-              <MapPin className="h-5 w-5 mr-2" />
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center text-slate-600 dark:text-slate-400 mb-4 sm:mb-6">
+              <MapPin className="h-5 w-5 mr-2 flex-shrink-0" />
               <span>{personalInfo.location}</span>
             </div>
 
-            <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
               {personalInfo.bio}
             </p>
 
@@ -75,7 +81,7 @@ export const AboutSection = () => {
                 <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   3+
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-slate-600 dark:text-slate-400 font-medium">
                   Years Experience
                 </div>
               </motion.div>
@@ -88,12 +94,12 @@ export const AboutSection = () => {
                 <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                   10+
                 </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
+                <div className="text-slate-600 dark:text-slate-400 font-medium">
                   Projects Completed
                 </div>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

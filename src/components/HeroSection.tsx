@@ -3,21 +3,13 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/data';
-import { useCallback } from 'react';
 import { Button } from './Button';
-
 import { ParallaxElement } from './ParallaxElement';
+import { scrollToSection } from '../lib/scroll';
 
 export const HeroSection = () => {
-  const scrollToAbout = useCallback(() => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, []);
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pt-16 sm:pt-20 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16 sm:pt-20 relative overflow-hidden">
       {/* Abstract Background Elements with Parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ParallaxElement speed={-0.2} className="absolute top-20 left-10">
@@ -29,7 +21,6 @@ export const HeroSection = () => {
         <ParallaxElement speed={0.1} className="absolute top-1/2 left-1/3">
           <div className="w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500 mix-blend-multiply dark:mix-blend-screen"></div>
         </ParallaxElement>
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -81,12 +72,13 @@ export const HeroSection = () => {
             {personalInfo.title}
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 sm:mb-12 leading-relaxed max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
+            {personalInfo.bio}
           </motion.p>
 
           <motion.div 
@@ -96,19 +88,14 @@ export const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
           >
             <Button
-              onClick={() => scrollToAbout()}
+              onClick={() => scrollToSection('about')}
               size="lg"
               className="w-full sm:w-auto"
             >
               Learn More About Me
             </Button>
             <Button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
+              onClick={() => scrollToSection('contact')}
               variant="outline"
               size="lg"
               className="w-full sm:w-auto"
@@ -124,15 +111,16 @@ export const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
           >
             {[
-              { href: personalInfo.contact.github, icon: Github },
-              { href: personalInfo.contact.linkedin, icon: Linkedin },
-              { href: `mailto:${personalInfo.contact.email}`, icon: Mail }
-            ].map((item, index) => (
+              { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
+              { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
+              { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' }
+            ].map((item) => (
               <a
-                key={index}
+                key={item.label}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={item.label}
                 className="p-3 rounded-full bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700"
               >
                 <item.icon className="h-6 w-6" />
@@ -150,7 +138,7 @@ export const HeroSection = () => {
         transition={{ delay: 1.2, duration: 0.8 }}
       >
         <motion.button
-          onClick={scrollToAbout}
+          onClick={() => scrollToSection('about')}
           className="flex flex-col items-center text-slate-400 hover:text-blue-500 transition-colors group"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
