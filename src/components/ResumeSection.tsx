@@ -58,7 +58,7 @@ export const ResumeSection = () => {
             </Button>
           </div>
 
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 relative min-h-[600px] md:min-h-[800px]">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 relative min-h-[400px] sm:min-h-[500px] md:min-h-[800px]">
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-slate-50 dark:bg-slate-950 z-20">
                 <div className="text-center">
@@ -70,7 +70,7 @@ export const ResumeSection = () => {
 
             <iframe
               src={resumePath}
-              className="w-full h-[600px] md:h-[800px] lg:h-[1000px]"
+              className="w-full h-[400px] sm:h-[500px] md:h-[800px] lg:h-[1000px]"
               title="Resume PDF Viewer"
               onLoad={() => setIsLoading(false)}
             />

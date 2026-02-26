@@ -9,7 +9,7 @@ import { scrollToSection } from '../lib/scroll';
 
 export const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 sm:pt-20 relative overflow-hidden">
+    <section id="home" className="min-h-[100dvh] flex items-center justify-center pt-16 sm:pt-20 relative overflow-hidden">
       {/* Abstract Background Elements with Parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ParallaxElement speed={-0.2} className="absolute top-20 left-10">

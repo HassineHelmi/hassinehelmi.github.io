@@ -38,16 +38,22 @@
 
 html {
   scroll-behavior: smooth;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
+  /* Match the page gradient start so no bare white/dark ever shows */
+  background: #f8fafc; /* slate-50 */
+}
+
+html.dark {
+  background: #020617; /* slate-950 */
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  width: 100vw;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
  

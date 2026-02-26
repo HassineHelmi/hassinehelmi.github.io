@@ -34,7 +34,7 @@ export const AboutSection = () => {
           >
             <div className="relative w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full">
               <motion.div
-                className="relative w-80 h-80 mx-auto"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
