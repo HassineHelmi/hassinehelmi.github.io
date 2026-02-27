@@ -39,7 +39,6 @@
 html {
   scroll-behavior: smooth;
   width: 100%;
-  overflow-x: hidden;
   /* Match the page gradient start so no bare white/dark ever shows */
   background: #f8fafc; /* slate-50 */
 }
@@ -54,7 +53,6 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
 }
  
 ::-webkit-scrollbar {
