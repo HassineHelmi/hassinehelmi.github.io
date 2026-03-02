@@ -35,6 +35,7 @@ export interface Project {
   github?: string;
   demo?: string;
   screenshot?: string;
+  screenshotBgClass?: string;
 }
 
 export interface Certification {
@@ -218,6 +219,15 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: 'Iron-ERP',
+    description: 'A fully customized ERP system for a textile-sector company, focused on supply chain, purchasing, and inventory traceability with scalable APIs and optimized data workflows.',
+    technologies: ['Node.js', 'NestJS', 'PostgreSQL', 'Prisma', 'React', 'TypeScript', 'GitHub Actions', 'Firebase'],
+    features: ['Scalable REST APIs for products, suppliers, and purchase orders', 'End-to-end inventory management with warehouse tracking', 'Barcode scanner integration for roll-level traceability', 'Database performance optimization and legacy code refactoring'],
+    github: 'https://github.com/HassineHelmi',
+    screenshot: '/ironERP.png',
+    screenshotBgClass: 'bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700'
+  },
   {
     title: 'Talent Cloud',
     description: 'A comprehensive full-stack recruitment platform featuring advanced candidate matching, real-time communication, and integrated authentication systems.',

@@ -54,7 +54,7 @@ export const ProjectsSection = () => {
               whileHover={{ y: -5 }}
               onClick={() => openModal(project)}
             >
-              <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <div className={`relative h-48 overflow-hidden ${project.screenshotBgClass ?? 'bg-slate-100 dark:bg-slate-800'}`}>
                 {project.screenshot ? (
                   <Image
                     src={project.screenshot}
@@ -163,12 +163,13 @@ export const ProjectsSection = () => {
 
               <div className="overflow-y-auto custom-scrollbar">
                 {selectedProject.screenshot && (
-                  <div className="relative w-full h-64 sm:h-80 bg-slate-100 dark:bg-slate-800">
+                  <div className={`w-full max-h-[75dvh] overflow-y-auto overflow-x-hidden custom-scrollbar ${selectedProject.screenshotBgClass ?? 'bg-slate-100 dark:bg-slate-800'}`}>
                     <Image
                       src={selectedProject.screenshot}
                       alt={selectedProject.title}
-                      fill
-                      className="object-cover"
+                      width={1920}
+                      height={1080}
+                      className="block w-full h-auto"
                     />
                   </div>
                 )}

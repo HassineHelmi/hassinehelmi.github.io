@@ -79,7 +79,7 @@ export const AboutSection = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  3+
+                  4+
                 </div>
                 <div className="text-slate-600 dark:text-slate-400 font-medium">
                   Years Experience

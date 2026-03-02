@@ -2,6 +2,7 @@
 import {
   ProgressBar,
   Navigation,
+  FadeInSection,
   HeroSection,
   AboutSection,
   SkillsSection,
@@ -25,14 +26,30 @@ export default function Home() {
       </div>
       <ProgressBar />
       <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <ResumeSection />
-      <ContactSection />
-      <Footer />
+      <FadeInSection>
+        <HeroSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <AboutSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <SkillsSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <ServicesSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <ProjectsSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <ResumeSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <ContactSection />
+      </FadeInSection>
+      <FadeInSection delay={0.05}>
+        <Footer />
+      </FadeInSection>
     </div>
   );
 }
