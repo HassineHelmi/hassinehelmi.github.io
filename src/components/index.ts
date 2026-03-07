@@ -9,4 +9,4 @@ export { ResumeSection } from './ResumeSection';
 export { ContactSection } from './ContactSection';
 export { Footer } from './Footer';
 export { FadeInSection } from './FadeInSection';
-export * from './ParallaxElement';
+export { ParallaxElement } from './ParallaxElement';

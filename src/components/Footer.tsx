@@ -5,26 +5,16 @@ import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
 import { personalInfo } from '../data/data';
 import { scrollToSection } from '../lib/scroll';
 
+const socialLinks = [
+  { icon: Github, href: personalInfo.contact.github, label: 'GitHub' },
+  { icon: Linkedin, href: personalInfo.contact.linkedin, label: 'LinkedIn' },
+  { icon: Mail, href: `mailto:${personalInfo.contact.email}`, label: 'Email' },
+] as const;
+
+const FOOTER_NAV = ['Home', 'About', 'Projects', 'Contact'] as const;
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      icon: Github,
-      href: personalInfo.contact.github,
-      label: 'GitHub'
-    },
-    {
-      icon: Linkedin,
-      href: personalInfo.contact.linkedin,
-      label: 'LinkedIn'
-    },
-    {
-      icon: Mail,
-      href: `mailto:${personalInfo.contact.email}`,
-      label: 'Email'
-    }
-  ];
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
@@ -68,7 +58,7 @@ export const Footer = () => {
           >
             <h4 className="font-semibold text-slate-900 dark:text-white mb-6">Navigation</h4>
             <ul className="space-y-3">
-              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+              {FOOTER_NAV.map((item) => (
                 <li key={item}>
                   <button
                     onClick={() => scrollToSection(item.toLowerCase())}

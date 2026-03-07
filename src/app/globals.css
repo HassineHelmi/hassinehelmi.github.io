@@ -87,6 +87,30 @@ html {
   display: none;
 }
 
+/* Thin custom scrollbar for horizontal carousels & modal bodies */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #3b82f6, #4f46e5);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #2563eb, #4338ca);
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {

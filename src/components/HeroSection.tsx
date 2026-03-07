@@ -7,6 +7,12 @@ import { Button } from './Button';
 import { ParallaxElement } from './ParallaxElement';
 import { scrollToSection } from '../lib/scroll';
 
+const socialLinks = [
+  { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
+  { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' },
+] as const;
+
 export const HeroSection = () => {
   return (
     <section id="home" className="min-h-dvh flex items-center justify-center pt-16 sm:pt-20 relative overflow-hidden">
@@ -110,11 +116,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            {[
-              { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
-              { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
-              { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' }
-            ].map((item) => (
+            {socialLinks.map((item) => (
               <a
                 key={item.label}
                 href={item.href}

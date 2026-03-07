@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
-import { services, Service } from '../data/data';
+import type { Service } from '../data/data';
+import { services } from '../data/data';
 
 export const ServicesSection = () => {
   return (
@@ -38,7 +38,7 @@ export const ServicesSection = () => {
   );
 };
 
-const ServiceCard: React.FC<{ service: Service; index: number; cardClass?: string }> = ({ service, index, cardClass = '' }) => {
+const ServiceCard = ({ service, index, cardClass = '' }: { service: Service; index: number; cardClass?: string }) => {
   const Icon = service.icon;
   return (
     <motion.div

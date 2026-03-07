@@ -2,29 +2,23 @@
 
 import { motion } from 'framer-motion';
 import { Download, FileText } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './Button';
+
+const RESUME_PATH = '/ResumeHassineHelmiEN.pdf';
+const RESUME_DOWNLOAD_NAME = 'Helmi_Hassine_Resume.pdf';
 
 export const ResumeSection = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const resumePath = '/ResumeHassineHelmiEN.pdf';
 
-  // onLoad doesn't reliably fire for PDF iframes in Chrome/Firefox
-  // because the browser's PDF viewer intercepts the load event.
-  // This fallback clears the overlay after a reasonable wait.
+  /**
+   * PDF `onLoad` doesn't reliably fire in Chrome/Firefox because the
+   * built-in PDF viewer intercepts the event. Use a timeout fallback.
+   */
   useEffect(() => {
-    const fallback = setTimeout(() => setIsLoading(false), 2500);
-    return () => clearTimeout(fallback);
+    const id = setTimeout(() => setIsLoading(false), 2500);
+    return () => clearTimeout(id);
   }, []);
-
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = resumePath;
-    link.download = 'Helmi_Hassine_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   return (
     <section id="resume" className="py-16 sm:py-20">
@@ -52,7 +46,10 @@ export const ResumeSection = () => {
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-8">
-            <Button onClick={handleDownload} size="lg">
+            <Button
+              onClick={() => window.open(RESUME_PATH, '_blank')}
+              size="lg"
+            >
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
@@ -69,7 +66,7 @@ export const ResumeSection = () => {
             )}
 
             <iframe
-              src={resumePath}
+              src={RESUME_PATH}
               className="w-full h-[400px] sm:h-[500px] md:h-[800px] lg:h-[1000px]"
               title="Resume PDF Viewer"
               onLoad={() => setIsLoading(false)}
@@ -81,10 +78,12 @@ export const ResumeSection = () => {
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
                   PDF preview is not available. Please download the resume to view it.
                 </p>
-                <Button onClick={handleDownload}>
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Resume
-                </Button>
+                <a href={RESUME_PATH} download={RESUME_DOWNLOAD_NAME}>
+                  <Button>
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Resume
+                  </Button>
+                </a>
               </div>
             </noscript>
           </div>
@@ -93,15 +92,15 @@ export const ResumeSection = () => {
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
               Can&apos;t view the PDF? Click below to download it directly.
             </p>
-            <Button variant="outline" size="sm" onClick={handleDownload}>
-              <Download className="mr-2 h-4 w-4" />
-              Download PDF
-            </Button>
+            <a href={RESUME_PATH} download={RESUME_DOWNLOAD_NAME}>
+              <Button variant="outline" size="sm">
+                <Download className="mr-2 h-4 w-4" />
+                Download PDF
+              </Button>
+            </a>
           </div>
         </motion.div>
       </div>
     </section>
   );
 };
-
-export default ResumeSection;

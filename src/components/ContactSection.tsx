@@ -5,44 +5,15 @@ import { Mail, Phone, Github, Linkedin, MessageSquare, ArrowRight } from 'lucide
 import { personalInfo } from '../data/data';
 import { Button } from './Button';
 
+const contactMethods = [
+  { icon: Mail, label: 'Email', value: personalInfo.contact.email, href: `mailto:${personalInfo.contact.email}`, color: 'bg-blue-500' },
+  { icon: Phone, label: 'Phone', value: personalInfo.contact.phone, href: `tel:${personalInfo.contact.phone}`, color: 'bg-green-500' },
+  { icon: MessageSquare, label: 'WhatsApp', value: 'Message me', href: personalInfo.contact.whatsapp, color: 'bg-emerald-500' },
+  { icon: Linkedin, label: 'LinkedIn', value: 'Connect', href: personalInfo.contact.linkedin, color: 'bg-blue-700' },
+  { icon: Github, label: 'GitHub', value: 'Follow', href: personalInfo.contact.github, color: 'bg-slate-800' },
+] as const;
+
 export const ContactSection = () => {
-  const contactMethods = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: personalInfo.contact.email,
-      href: `mailto:${personalInfo.contact.email}`,
-      color: 'bg-blue-500'
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: personalInfo.contact.phone,
-      href: `tel:${personalInfo.contact.phone}`,
-      color: 'bg-green-500'
-    },
-    {
-      icon: MessageSquare,
-      label: 'WhatsApp',
-      value: 'Message me',
-      href: personalInfo.contact.whatsapp,
-      color: 'bg-emerald-500'
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'Connect',
-      href: personalInfo.contact.linkedin,
-      color: 'bg-blue-700'
-    },
-    {
-      icon: Github,
-      label: 'GitHub',
-      value: 'Follow',
-      href: personalInfo.contact.github,
-      color: 'bg-slate-800'
-    }
-  ];
 
   return (
     <section id="contact" className="py-20 sm:py-24">

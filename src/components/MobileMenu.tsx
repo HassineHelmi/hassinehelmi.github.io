@@ -4,6 +4,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data/data';
 
+/* ---------- animation variants (module-level, zero re-allocation) ---------- */
+
+const EASE: [number, number, number, number] = [0.76, 0, 0.24, 1];
+
+const menuVariants = {
+  closed: { opacity: 0, y: '-100%', transition: { duration: 0.5, ease: EASE } },
+  open: {
+    opacity: 1,
+    y: '0%',
+    transition: { duration: 0.5, ease: EASE, staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+} as const;
+
+const itemVariants = {
+  closed: { y: 50, opacity: 0 },
+  open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: EASE } },
+} as const;
+
+const socialLinks = [
+  { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
+  { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' },
+] as const;
+
+/* ---------- component ---------- */
+
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -12,31 +38,6 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuProps) => {
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      y: '-100%',
-      transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1] as const
-      }
-    },
-    open: {
-      opacity: 1,
-      y: '0%',
-      transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1] as const,
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    closed: { y: 50, opacity: 0 },
-    open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] as const } }
-  };
 
   return (
     <AnimatePresence>
@@ -85,11 +86,7 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
             className="p-8 bg-slate-50 dark:bg-slate-900/50"
           >
             <div className="flex justify-between items-center max-w-xs mx-auto">
-              {[
-                { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
-                { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
-                { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' }
-              ].map((social, index) => (
+              {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
