@@ -19,13 +19,13 @@ export const HeroSection = () => {
       {/* Abstract Background Elements with Parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ParallaxElement speed={-0.2} className="absolute top-20 left-10">
-          <div className="w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse mix-blend-multiply dark:mix-blend-screen"></div>
+          <div className="w-64 sm:w-72 h-64 sm:h-72 bg-blue-500/10 rounded-full blur-2xl sm:blur-3xl animate-pulse mix-blend-multiply dark:mix-blend-screen"></div>
         </ParallaxElement>
         <ParallaxElement speed={0.3} className="absolute bottom-20 right-10">
-          <div className="w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000 mix-blend-multiply dark:mix-blend-screen"></div>
+          <div className="w-80 sm:w-96 h-80 sm:h-96 bg-indigo-500/10 rounded-full blur-2xl sm:blur-3xl animate-pulse delay-1000 mix-blend-multiply dark:mix-blend-screen"></div>
         </ParallaxElement>
         <ParallaxElement speed={0.1} className="absolute top-1/2 left-1/3">
-          <div className="w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-500 mix-blend-multiply dark:mix-blend-screen"></div>
+          <div className="w-56 sm:w-64 h-56 sm:h-64 bg-purple-500/10 rounded-full blur-2xl sm:blur-3xl animate-pulse delay-500 mix-blend-multiply dark:mix-blend-screen"></div>
         </ParallaxElement>
       </div>
 

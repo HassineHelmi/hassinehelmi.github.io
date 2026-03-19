@@ -18,8 +18,11 @@ type Particle = {
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
 const createParticles = (width: number, height: number) => {
+  const isMobile = width < 768;
   const area = width * height;
-  const count = clamp(Math.floor(area / 17000), 46, 120);
+  const count = isMobile
+    ? clamp(Math.floor(area / 24000), 34, 72)
+    : clamp(Math.floor(area / 17000), 46, 120);
 
   return Array.from({ length: count }, () => {
     const x = Math.random() * width;
@@ -54,6 +57,7 @@ export const DynamicBackground = () => {
     let width = window.innerWidth;
     let height = window.innerHeight;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
     let particles = createParticles(width, height);
 
@@ -61,7 +65,7 @@ export const DynamicBackground = () => {
       x: width / 2,
       y: height / 2,
       active: false,
-      radius: 190,
+      radius: isTouchDevice ? 140 : 190,
     };
 
     const applyCanvasScale = () => {
@@ -92,13 +96,34 @@ export const DynamicBackground = () => {
       pointer.active = false;
     };
 
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        lastFrameTime = performance.now();
+      }
+    };
+
     const getIsDarkMode = () => document.documentElement.classList.contains('dark');
 
     applyCanvasScale();
 
     let raf = 0;
+    let lastFrameTime = performance.now();
+    const targetFps = isTouchDevice ? 42 : 60;
+    const frameInterval = 1000 / targetFps;
 
     const tick = (time: number) => {
+      const elapsed = time - lastFrameTime;
+      if (elapsed < frameInterval) {
+        raf = window.requestAnimationFrame(tick);
+        return;
+      }
+      lastFrameTime = time;
+
+      if (document.hidden) {
+        raf = window.requestAnimationFrame(tick);
+        return;
+      }
+
       const isDarkMode = getIsDarkMode();
       const lineRgb = isDarkMode ? '125, 211, 252' : '59, 130, 246';
       const dotRgb = isDarkMode ? '191, 219, 254' : '37, 99, 235';
@@ -147,7 +172,8 @@ export const DynamicBackground = () => {
         if (particle.y > height + 40) particle.y = -40;
       }
 
-      const connectDistance = 150;
+      const connectDistance = isTouchDevice ? 118 : 150;
+      const connectDistanceSquared = connectDistance * connectDistance;
 
       for (let first = 0; first < particles.length; first += 1) {
         const particleA = particles[first];
@@ -156,9 +182,11 @@ export const DynamicBackground = () => {
           const particleB = particles[second];
           const dx = particleA.x - particleB.x;
           const dy = particleA.y - particleB.y;
-          const distance = Math.hypot(dx, dy);
+          const distanceSquared = dx * dx + dy * dy;
 
-          if (distance > connectDistance) continue;
+          if (distanceSquared > connectDistanceSquared) continue;
+
+          const distance = Math.sqrt(distanceSquared);
 
           const baseAlpha = (1 - distance / connectDistance) * 0.3;
 
@@ -215,12 +243,14 @@ export const DynamicBackground = () => {
     window.addEventListener('resize', handleResize, { passive: true });
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
     window.addEventListener('pointerout', handlePointerOut, { passive: true });
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.cancelAnimationFrame(raf);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerout', handlePointerOut);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
