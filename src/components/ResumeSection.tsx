@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Download, FileText } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from './Button';

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { X, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data/data';
 

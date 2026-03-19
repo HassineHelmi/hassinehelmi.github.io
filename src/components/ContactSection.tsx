@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Mail, Phone, Github, Linkedin, MessageSquare, ArrowRight } from 'lucide-react';
 import { personalInfo } from '../data/data';
 import { Button } from './Button';

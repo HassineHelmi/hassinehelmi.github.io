@@ -1,4 +1,4 @@
-export { ProgressBar } from './ProgressBar';
+export { DynamicBackground } from './DynamicBackground';
 export { Navigation } from './Navigation';
 export { HeroSection } from './HeroSection';
 export { AboutSection } from './AboutSection';

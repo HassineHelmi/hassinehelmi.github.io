@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
 import { personalInfo } from '../data/data';
 import { scrollToSection } from '../lib/scroll';
