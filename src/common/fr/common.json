@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "title": "Hassine Helmi - Développeur Full Stack",
+    "description": "Développeur Full Stack basé à Monastir, Tunisie. Spécialisé en Java, JavaScript, React, Spring Boot et technologies web modernes."
+  },
+  "navigation": {
+    "brand": "Helmi.dev",
+    "menuTitle": "Menu",
+    "aria": {
+      "primary": "Principal",
+      "toggleMenu": "Basculer le menu de navigation",
+      "closeMenu": "Fermer le menu"
+    },
+    "items": [
+      { "name": "Accueil", "id": "home" },
+      { "name": "À propos", "id": "about" },
+      { "name": "Compétences", "id": "skills" },
+      { "name": "Services", "id": "services" },
+      { "name": "Projets", "id": "projects" },
+      { "name": "CV", "id": "resume" },
+      { "name": "Contact", "id": "contact" }
+    ],
+    "ariaGoTo": "Aller à {section}",
+    "language": {
+      "label": "Langue",
+      "english": "EN",
+      "french": "FR"
+    }
+  },
+  "personalInfo": {
+    "name": "Helmi Hassine",
+    "title": "Développeur Full Stack",
+    "location": "Monastir, Tunisie",
+    "bio": "Je suis un développeur Full Stack tunisien, diplômé en informatique de l'EPI Digital School. J'ai de l'expérience dans la création d'applications full stack, la conception de solutions évolutives et la collaboration en équipe. J'aime concevoir des interfaces élégantes et résoudre des problèmes complexes avec un code efficace."
+  },
+  "hero": {
+    "badge": "Bonjour, je suis",
+    "learnMore": "En savoir plus sur moi",
+    "contact": "Me contacter",
+    "scroll": "Défiler"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Découvrez davantage mon parcours et ma passion pour la technologie",
+    "profileAlt": "Helmi Hassine - Ingénieur logiciel Full Stack",
+    "stats": [
+      { "value": "4+", "label": "Années d'expérience" },
+      { "value": "10+", "label": "Projets réalisés" }
+    ]
+  },
+  "skills": {
+    "title": "Compétences & Technologies",
+    "subtitle": "Les outils et technologies que j'utilise pour concrétiser les idées",
+    "categories": [
+      {
+        "title": "Langages de programmation",
+        "icon": "Code",
+        "skills": [
+          { "name": "Java", "icon": "Code" },
+          { "name": "JavaScript", "icon": "SiJavascript" },
+          { "name": "TypeScript", "icon": "SiTypescript" },
+          { "name": "Python", "icon": "SiPython" }
+        ]
+      },
+      {
+        "title": "Frontend",
+        "icon": "Smartphone",
+        "skills": [
+          { "name": "React.js", "icon": "SiReact" },
+          { "name": "Next.js", "icon": "SiNextdotjs" },
+          { "name": "TailwindCSS", "icon": "SiTailwindcss" },
+          { "name": "Material UI", "icon": "SiReact" },
+          { "name": "Figma", "icon": "SiFigma" }
+        ]
+      },
+      {
+        "title": "Backend & Bases de données",
+        "icon": "Database",
+        "skills": [
+          { "name": "Spring Boot", "icon": "SiSpringboot" },
+          { "name": "NestJS", "icon": "SiNestjs" },
+          { "name": "Node.js", "icon": "SiNodedotjs" },
+          { "name": "PostgreSQL", "icon": "SiPostgresql" },
+          { "name": "MySQL", "icon": "SiMysql" },
+          { "name": "Firebase", "icon": "SiFirebase" }
+        ]
+      },
+      {
+        "title": "Mobile & Outils",
+        "icon": "Settings",
+        "skills": [
+          { "name": "React Native", "icon": "SiReact" },
+          { "name": "Flutter", "icon": "SiFlutter" },
+          { "name": "Android", "icon": "SiAndroid" },
+          { "name": "Docker", "icon": "SiDocker" },
+          { "name": "Git", "icon": "SiGit" }
+        ]
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Une expertise professionnelle pour accélérer vos projets logiciels",
+    "items": [
+      {
+        "title": "Développement web Full Stack",
+        "description": "Développement d'applications web de bout en bout avec des frameworks modernes et les meilleures pratiques.",
+        "icon": "Globe",
+        "features": [
+          "Applications React.js & Next.js",
+          "APIs Spring Boot & NestJS",
+          "Conception et intégration de bases de données",
+          "Authentification et autorisation"
+        ],
+        "technologies": ["React", "Next.js", "Spring Boot", "NestJS", "PostgreSQL", "TypeScript"]
+      },
+      {
+        "title": "Développement UI/UX",
+        "description": "Création d'interfaces utilisateurs belles et responsives selon des principes de design modernes.",
+        "icon": "Layers",
+        "features": [
+          "Bibliothèques de composants UI réutilisables",
+          "Implémentation responsive",
+          "Développement de design systems",
+          "Conversion Figma vers code"
+        ],
+        "technologies": ["TailwindCSS", "Material UI", "Figma", "Storybook", "Sass"]
+      },
+      {
+        "title": "Développement mobile",
+        "description": "Applications mobiles cross-platform avec performances natives et excellente expérience utilisateur.",
+        "icon": "Smartphone",
+        "features": [
+          "Développement React Native",
+          "Applications Flutter",
+          "Solutions multiplateformes",
+          "Publication sur les stores"
+        ],
+        "technologies": ["React Native", "Flutter", "Firebase", "Android", "iOS"]
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Infrastructure cloud évolutive et solutions de déploiement pour applications modernes.",
+        "icon": "Cloud",
+        "features": [
+          "Conteneurisation Docker",
+          "Intégration des services AWS",
+          "Mise en place de pipelines CI/CD",
+          "Architecture cloud"
+        ],
+        "technologies": ["Docker", "AWS", "GitHub Actions", "Jenkins", "Kubernetes"]
+      },
+      {
+        "title": "Solutions propulsées par l'IA",
+        "description": "Applications intelligentes avec intégration de l'IA et du machine learning.",
+        "icon": "Brain",
+        "features": [
+          "Systèmes de parsing IA",
+          "Moteurs de recommandation",
+          "Applications de vision par ordinateur",
+          "Traitement du langage naturel"
+        ],
+        "technologies": ["Python", "TensorFlow", "OpenCV", "Machine Learning", "AI/ML"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projets phares",
+    "subtitle": "Une sélection de mes travaux récents, mettant en avant défis techniques et solutions créatives.",
+    "modal": {
+      "closeAria": "Fermer les détails du projet",
+      "code": "Code",
+      "keyFeatures": "Fonctionnalités clés",
+      "technologies": "Technologies"
+    },
+    "card": {
+      "noPreview": "Aperçu indisponible",
+      "viewDetails": "Voir les détails",
+      "githubAria": "Dépôt GitHub de {title}"
+    },
+    "controls": {
+      "scrollLeftAria": "Faire défiler les projets à gauche",
+      "scrollRightAria": "Faire défiler les projets à droite",
+      "viewMoreGithub": "Voir plus sur GitHub"
+    },
+    "items": [
+      {
+        "title": "Iron-ERP",
+        "description": "Un système ERP entièrement personnalisé pour une entreprise du textile, axé sur la supply chain, les achats et la traçabilité des stocks avec des APIs évolutives et des flux de données optimisés.",
+        "technologies": ["Node.js", "NestJS", "PostgreSQL", "Prisma", "React", "TypeScript", "GitHub Actions", "Firebase"],
+        "features": [
+          "APIs REST évolutives pour produits, fournisseurs et bons de commande",
+          "Gestion des stocks de bout en bout avec suivi des entrepôts",
+          "Intégration d'un scanner code-barres pour la traçabilité au niveau des rouleaux",
+          "Optimisation des performances base de données et refactorisation legacy"
+        ],
+        "github": "https://github.com/HassineHelmi",
+        "screenshot": "/ironERP.png",
+        "screenshotBgClass": "bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700"
+      },
+      {
+        "title": "Talent Cloud",
+        "description": "Une plateforme de recrutement full stack complète avec matching avancé des candidats, communication en temps réel et systèmes d'authentification intégrés.",
+        "technologies": ["Next.js", "Spring Boot", "Keycloak", "AWS", "PostgreSQL", "TypeScript"],
+        "features": ["Matching piloté par IA", "Messagerie temps réel", "Filtrage avancé", "Déploiement cloud"],
+        "github": "https://github.com/HassineHelmi",
+        "screenshot": "/talent-cloud.png"
+      },
+      {
+        "title": "Deal Hub",
+        "description": "Application marketplace cross-platform offrant une expérience fluide d'achat/vente avec notifications en temps réel et paiements sécurisés.",
+        "technologies": ["React Native", "Firebase", "JavaScript", "Stripe API"],
+        "features": ["Compatibilité multiplateforme", "Notifications temps réel", "Paiements sécurisés", "Authentification utilisateur"],
+        "github": "https://github.com/HassineHelmi",
+        "screenshot": "/dealhub.png"
+      },
+      {
+        "title": "Bankerize UI Toolkit",
+        "description": "Bibliothèque complète de composants construite avec des pratiques modernes, incluant composants réutilisables et guidelines de design system.",
+        "technologies": ["React", "TailwindCSS", "Storybook", "NX Monorepo", "TypeScript"],
+        "features": ["Composants réutilisables", "Design system", "Documentation", "Suite de tests"],
+        "github": "https://github.com/HassineHelmi",
+        "screenshot": "/bankerize-ui-toolkit.png"
+      }
+    ]
+  },
+  "resume": {
+    "title": "Mon CV",
+    "subtitle": "Consultez mon expérience professionnelle et mes qualifications",
+    "downloadResume": "Télécharger le CV",
+    "loading": "Chargement du CV...",
+    "viewerTitle": "Visionneuse PDF du CV",
+    "noPreview": "L'aperçu PDF n'est pas disponible. Veuillez télécharger le CV pour le consulter.",
+    "cantView": "Vous ne pouvez pas voir le PDF ? Cliquez ci-dessous pour le télécharger directement.",
+    "downloadPdf": "Télécharger le PDF",
+    "downloadName": "Helmi_Hassine_CV_FR.pdf"
+  },
+  "contact": {
+    "badge": "✨ Créons quelque chose d'exceptionnel",
+    "title": "Prêt à démarrer votre prochain projet ?",
+    "subtitle": "Je suis actuellement disponible pour des missions freelance et ouvert à de nouvelles opportunités. Si vous avez un projet qui a besoin d'une touche créative, je serais ravi d'en discuter.",
+    "sayHello": "Dire bonjour",
+    "methods": {
+      "email": { "label": "Email" },
+      "phone": { "label": "Téléphone" },
+      "whatsapp": { "label": "WhatsApp", "value": "M'écrire" },
+      "linkedin": { "label": "LinkedIn", "value": "Se connecter" },
+      "github": { "label": "GitHub", "value": "Suivre" }
+    }
+  },
+  "footer": {
+    "about": "Je conçois des expériences digitales avec passion et précision. Spécialisé dans le développement d'applications web modernes qui répondent à de vrais besoins.",
+    "navigationTitle": "Navigation",
+    "contactTitle": "Contact",
+    "navItems": ["Accueil", "À propos", "Projets", "Contact"],
+    "rights": "© {year} {name}. Tous droits réservés.",
+    "madeWith": "Fait avec",
+    "andLotsOf": "et beaucoup de"
+  },
+  "links": {
+    "github": "https://github.com/HassineHelmi",
+    "linkedin": "https://linkedin.com/in/helmi-hassine",
+    "email": "helmi.hassine1@gmail.com",
+    "phone": "+216 28372002",
+    "whatsapp": "https://wa.me/21628372002"
+  }
+}

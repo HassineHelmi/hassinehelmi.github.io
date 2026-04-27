@@ -2,18 +2,30 @@
 
 import { motion } from 'motion/react';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { Button } from './Button';
 import { ParallaxElement } from './ParallaxElement';
 import { scrollToSection } from '../lib/scroll';
 
-const socialLinks = [
-  { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
-  { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
-  { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' },
-] as const;
-
 export const HeroSection = () => {
+  const t = useTranslations();
+  const personalInfo = t.raw('personalInfo') as {
+    name: string;
+    title: string;
+    bio: string;
+  };
+  const links = t.raw('links') as {
+    github: string;
+    linkedin: string;
+    email: string;
+  };
+
+  const socialLinks = [
+    { href: links.github, icon: Github, label: 'GitHub' },
+    { href: links.linkedin, icon: Linkedin, label: 'LinkedIn' },
+    { href: `mailto:${links.email}`, icon: Mail, label: 'Email' },
+  ] as const;
+
   return (
     <section id="home" className="min-h-dvh flex items-center justify-center pt-16 sm:pt-20 relative overflow-hidden">
       {/* Abstract Background Elements with Parallax */}
@@ -55,7 +67,7 @@ export const HeroSection = () => {
             >
               👋
             </motion.span>
-            <span className="text-sm font-medium">Hello, I&apos;m</span>
+            <span className="text-sm font-medium">{t('hero.badge')}</span>
           </motion.div>
 
           <motion.h1
@@ -98,7 +110,7 @@ export const HeroSection = () => {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Learn More About Me
+              {t('hero.learnMore')}
             </Button>
             <Button
               onClick={() => scrollToSection('contact')}
@@ -106,7 +118,7 @@ export const HeroSection = () => {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Get In Touch
+              {t('hero.contact')}
             </Button>
           </motion.div>
 
@@ -145,7 +157,7 @@ export const HeroSection = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <span className="text-xs font-medium mb-2 tracking-widest uppercase opacity-70">Scroll</span>
+          <span className="text-xs font-medium mb-2 tracking-widest uppercase opacity-70">{t('hero.scroll')}</span>
           <ChevronDown className="h-5 w-5 group-hover:text-blue-500 transition-colors" />
         </motion.button>
       </motion.div>

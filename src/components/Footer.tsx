@@ -2,18 +2,30 @@
 
 import { motion } from 'motion/react';
 import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { scrollToSection } from '../lib/scroll';
 
-const socialLinks = [
-  { icon: Github, href: personalInfo.contact.github, label: 'GitHub' },
-  { icon: Linkedin, href: personalInfo.contact.linkedin, label: 'LinkedIn' },
-  { icon: Mail, href: `mailto:${personalInfo.contact.email}`, label: 'Email' },
-] as const;
-
-const FOOTER_NAV = ['Home', 'About', 'Projects', 'Contact'] as const;
+const FOOTER_NAV_IDS = ['home', 'about', 'projects', 'contact'] as const;
 
 export const Footer = () => {
+  const t = useTranslations();
+  const personalInfo = t.raw('personalInfo') as {
+    name: string;
+    location: string;
+  };
+  const links = t.raw('links') as {
+    github: string;
+    linkedin: string;
+    email: string;
+  };
+  const footerNav = t.raw('footer.navItems') as string[];
+
+  const socialLinks = [
+    { icon: Github, href: links.github, label: 'GitHub' },
+    { icon: Linkedin, href: links.linkedin, label: 'LinkedIn' },
+    { icon: Mail, href: `mailto:${links.email}`, label: 'Email' },
+  ] as const;
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -30,8 +42,7 @@ export const Footer = () => {
                 {personalInfo.name}
               </h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-sm mb-6">
-                Crafting digital experiences with passion and precision. 
-                Specialized in building modern web applications that solve real-world problems.
+                {t('footer.about')}
               </p>
               <div className="flex gap-4">
                 {socialLinks.map((link) => (
@@ -56,12 +67,12 @@ export const Footer = () => {
             transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-6">Navigation</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-6">{t('footer.navigationTitle')}</h4>
             <ul className="space-y-3">
-              {FOOTER_NAV.map((item) => (
+              {footerNav.map((item, index) => (
                 <li key={item}>
                   <button
-                    onClick={() => scrollToSection(item.toLowerCase())}
+                    onClick={() => scrollToSection(FOOTER_NAV_IDS[index] ?? 'home')}
                     className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {item}
@@ -77,12 +88,12 @@ export const Footer = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-6">Contact</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-6">{t('footer.contactTitle')}</h4>
             <ul className="space-y-3 text-slate-600 dark:text-slate-400">
               <li>{personalInfo.location}</li>
               <li>
-                <a href={`mailto:${personalInfo.contact.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  {personalInfo.contact.email}
+                <a href={`mailto:${links.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {links.email}
                 </a>
               </li>
             </ul>
@@ -91,12 +102,12 @@ export const Footer = () => {
 
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 dark:text-slate-500 text-sm">
-            © {currentYear} {personalInfo.name}. All rights reserved.
+            {t('footer.rights', { year: currentYear, name: personalInfo.name })}
           </p>
           <div className="flex items-center text-slate-500 dark:text-slate-500 text-sm">
-            <span>Made with</span>
+            <span>{t('footer.madeWith')}</span>
             <Heart className="h-4 w-4 text-red-500 mx-1 animate-pulse" />
-            <span>and lots of</span>
+            <span>{t('footer.andLotsOf')}</span>
             <Coffee className="h-4 w-4 text-yellow-500 mx-1 animate-pulse" />
           </div>
         </div>

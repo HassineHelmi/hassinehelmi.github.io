@@ -3,12 +3,16 @@
 import { motion } from 'motion/react';
 import { Download, FileText } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { Button } from './Button';
 
-const RESUME_PATH = '/ResumeHassineHelmiEN.pdf';
-const RESUME_DOWNLOAD_NAME = 'Helmi_Hassine_Resume.pdf';
-
 export const ResumeSection = () => {
+  const t = useTranslations();
+  const locale = useLocale();
+  const normalizedLocale = locale === 'fr' ? 'fr' : 'en';
+  const resumeSuffix = normalizedLocale.toUpperCase();
+  const resumePath = `/ResumeHassineHelmi${resumeSuffix}.pdf`;
+
   const [isLoading, setIsLoading] = useState(true);
 
   /**
@@ -31,10 +35,10 @@ export const ResumeSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            My Resume
+            {t('resume.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            View my professional experience and qualifications
+            {t('resume.subtitle')}
           </p>
         </motion.div>
 
@@ -47,11 +51,11 @@ export const ResumeSection = () => {
         >
           <div className="flex justify-center mb-8">
             <Button
-              onClick={() => window.open(RESUME_PATH, '_blank')}
+              onClick={() => window.open(resumePath, '_blank')}
               size="lg"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Resume
+              {t('resume.downloadResume')}
             </Button>
           </div>
 
@@ -60,15 +64,15 @@ export const ResumeSection = () => {
               <div className="absolute inset-0 flex items-center justify-center bg-slate-50 dark:bg-slate-950 z-20">
                 <div className="text-center">
                   <FileText className="h-16 w-16 text-blue-600 dark:text-blue-400 mx-auto mb-4 animate-pulse" />
-                  <p className="text-slate-600 dark:text-slate-400">Loading resume...</p>
+                  <p className="text-slate-600 dark:text-slate-400">{t('resume.loading')}</p>
                 </div>
               </div>
             )}
 
             <iframe
-              src={RESUME_PATH}
+              src={resumePath}
               className="w-full h-[400px] sm:h-[500px] md:h-[800px] lg:h-[1000px]"
-              title="Resume PDF Viewer"
+              title={t('resume.viewerTitle')}
               onLoad={() => setIsLoading(false)}
             />
 
@@ -76,12 +80,12 @@ export const ResumeSection = () => {
               <div className="p-8 text-center bg-slate-100 dark:bg-slate-800">
                 <FileText className="h-16 w-16 text-slate-400 mx-auto mb-4" />
                 <p className="text-slate-600 dark:text-slate-400 mb-4">
-                  PDF preview is not available. Please download the resume to view it.
+                  {t('resume.noPreview')}
                 </p>
-                <a href={RESUME_PATH} download={RESUME_DOWNLOAD_NAME}>
+                <a href={resumePath} download={t('resume.downloadName')}>
                   <Button>
                     <Download className="mr-2 h-5 w-5" />
-                    Download Resume
+                    {t('resume.downloadResume')}
                   </Button>
                 </a>
               </div>
@@ -90,12 +94,12 @@ export const ResumeSection = () => {
 
           <div className="text-center mt-8">
             <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-              Can&apos;t view the PDF? Click below to download it directly.
+              {t('resume.cantView')}
             </p>
-            <a href={RESUME_PATH} download={RESUME_DOWNLOAD_NAME}>
+            <a href={resumePath} download={t('resume.downloadName')}>
               <Button variant="outline" size="sm">
                 <Download className="mr-2 h-4 w-4" />
-                Download PDF
+                {t('resume.downloadPdf')}
               </Button>
             </a>
           </div>

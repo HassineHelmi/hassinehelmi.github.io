@@ -4,9 +4,18 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Github, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { projects } from '../data/data';
-import type { Project } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { Button } from './Button';
+
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+  github?: string;
+  screenshot?: string;
+  screenshotBgClass?: string;
+};
 
 /* ------------------------------------------------------------------ */
 /*  Modal                                                              */
@@ -17,9 +26,11 @@ const modalTransition = { type: 'spring', damping: 25, stiffness: 300 } as const
 const ProjectModal = ({
   project,
   onClose,
+  t,
 }: {
   project: Project;
   onClose: () => void;
+  t: ReturnType<typeof useTranslations>;
 }) => {
   /** Lock body scroll while the modal is mounted */
   useEffect(() => {
@@ -59,7 +70,7 @@ const ProjectModal = ({
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 p-2 bg-white/50 dark:bg-black/50 backdrop-blur-md rounded-full text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-black transition-colors"
-          aria-label="Close project details"
+          aria-label={t('projects.modal.closeAria')}
         >
           <X className="h-5 w-5" />
         </button>
@@ -93,7 +104,7 @@ const ProjectModal = ({
                   onClick={() => window.open(project.github, '_blank')}
                 >
                   <Github className="mr-2 h-4 w-4" />
-                  Code
+                  {t('projects.modal.code')}
                 </Button>
               )}
             </div>
@@ -105,7 +116,7 @@ const ProjectModal = ({
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
-                  Key Features
+                  {t('projects.modal.keyFeatures')}
                 </h4>
                 <ul className="space-y-3">
                   {project.features.map((feature, i) => (
@@ -119,7 +130,7 @@ const ProjectModal = ({
 
               <div>
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
-                  Technologies
+                  {t('projects.modal.technologies')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
@@ -148,10 +159,12 @@ const ProjectCard = ({
   project,
   index,
   onSelect,
+  t,
 }: {
   project: Project;
   index: number;
   onSelect: (p: Project) => void;
+  t: ReturnType<typeof useTranslations>;
 }) => (
   <motion.div
     className="group relative bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[380px] h-full snap-start"
@@ -177,11 +190,11 @@ const ProjectCard = ({
         />
       ) : (
         <div className="flex items-center justify-center h-full text-slate-400">
-          No Preview Available
+          {t('projects.card.noPreview')}
         </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-        <span className="text-white font-medium text-sm">View Details</span>
+        <span className="text-white font-medium text-sm">{t('projects.card.viewDetails')}</span>
       </div>
     </div>
 
@@ -197,7 +210,7 @@ const ProjectCard = ({
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             onClick={(e) => e.stopPropagation()}
-            aria-label={`${project.title} GitHub repository`}
+            aria-label={t('projects.card.githubAria', { title: project.title })}
           >
             <Github className="h-5 w-5" />
           </a>
@@ -232,6 +245,8 @@ const ProjectCard = ({
 /* ------------------------------------------------------------------ */
 
 export const ProjectsSection = () => {
+  const t = useTranslations();
+  const projects = t.raw('projects.items') as Project[];
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -276,10 +291,10 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Featured Projects
+            {t('projects.title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            A showcase of my recent work, highlighting technical challenges and creative solutions.
+            {t('projects.subtitle')}
           </p>
         </motion.div>
 
@@ -290,7 +305,7 @@ export const ProjectsSection = () => {
             size="sm"
             onClick={() => scroll('left')}
             disabled={!canScrollLeft}
-            aria-label="Scroll projects left"
+            aria-label={t('projects.controls.scrollLeftAria')}
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
@@ -299,7 +314,7 @@ export const ProjectsSection = () => {
             size="sm"
             onClick={() => scroll('right')}
             disabled={!canScrollRight}
-            aria-label="Scroll projects right"
+            aria-label={t('projects.controls.scrollRightAria')}
           >
             <ChevronRight className="h-4 w-4" />
           </Button>
@@ -317,6 +332,7 @@ export const ProjectsSection = () => {
               project={project}
               index={index}
               onSelect={setSelectedProject}
+              t={t}
             />
           ))}
         </div>
@@ -334,7 +350,7 @@ export const ProjectsSection = () => {
             onClick={() => window.open('https://github.com/HassineHelmi', '_blank')}
           >
             <Github className="mr-2 h-5 w-5" />
-            View More on GitHub
+            {t('projects.controls.viewMoreGithub')}
           </Button>
         </motion.div>
       </div>
@@ -342,7 +358,7 @@ export const ProjectsSection = () => {
       {/* Project detail modal */}
       <AnimatePresence>
         {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={closeModal} />
+          <ProjectModal project={selectedProject} onClose={closeModal} t={t} />
         )}
       </AnimatePresence>
     </section>

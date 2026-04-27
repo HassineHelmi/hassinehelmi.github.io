@@ -3,9 +3,16 @@
 import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
-import { personalInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 
 export const AboutSection = () => {
+  const t = useTranslations();
+  const personalInfo = t.raw('personalInfo') as {
+    location: string;
+    bio: string;
+  };
+  const stats = t.raw('about.stats') as { value: string; label: string }[];
+
   return (
     <section id="about" className="py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,10 +24,10 @@ export const AboutSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            About Me
+            {t('about.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            Get to know more about my background and passion for technology
+            {t('about.subtitle')}
           </p>
         </motion.div>
 
@@ -41,7 +48,7 @@ export const AboutSection = () => {
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                   <Image
                     src="/profilepicture.jpg"
-                    alt="Helmi Hassine - Full Stack Software Engineer"
+                    alt={t('about.profileAlt')}
                     width={320}
                     height={320}
                     className="w-full h-full object-cover object-center"
@@ -73,31 +80,31 @@ export const AboutSection = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 sm:pt-6">
-              <motion.div
-                className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl border border-blue-200 dark:border-blue-700"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  4+
-                </div>
-                <div className="text-slate-600 dark:text-slate-400 font-medium">
-                  Years Experience
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl border border-purple-200 dark:border-purple-700"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
-                  10+
-                </div>
-                <div className="text-slate-600 dark:text-slate-400 font-medium">
-                  Projects Completed
-                </div>
-              </motion.div>
+              {stats.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className={`text-center p-6 rounded-xl border ${
+                    index === 0
+                      ? 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-blue-200 dark:border-blue-700'
+                      : 'bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 border-purple-200 dark:border-purple-700'
+                  }`}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div
+                    className={`text-3xl font-bold mb-2 ${
+                      index === 0
+                        ? 'text-blue-600 dark:text-blue-400'
+                        : 'text-purple-600 dark:text-purple-400'
+                    }`}
+                  >
+                    {item.value}
+                  </div>
+                  <div className="text-slate-600 dark:text-slate-400 font-medium">
+                    {item.label}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

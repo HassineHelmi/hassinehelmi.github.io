@@ -1,7 +1,68 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { skillCategories } from '../data/data';
+import { useTranslations } from 'next-intl';
+import { Code, Database, Smartphone, Settings } from 'lucide-react';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiNestjs,
+  SiSpringboot,
+  SiPostgresql,
+  SiMysql,
+  SiFirebase,
+  SiDocker,
+  SiGit,
+  SiFigma,
+  SiFlutter,
+  SiAndroid,
+} from 'react-icons/si';
+
+type IconComponent = React.ComponentType<{ className?: string }>;
+
+const CATEGORY_ICONS: Record<string, IconComponent> = {
+  Code,
+  Database,
+  Smartphone,
+  Settings,
+};
+
+const SKILL_ICONS: Record<string, IconComponent> = {
+  Code,
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiNestjs,
+  SiSpringboot,
+  SiPostgresql,
+  SiMysql,
+  SiFirebase,
+  SiDocker,
+  SiGit,
+  SiFigma,
+  SiFlutter,
+  SiAndroid,
+};
+
+type SkillItem = {
+  name: string;
+  icon: string;
+};
+
+type SkillCategory = {
+  title: string;
+  icon: string;
+  skills: SkillItem[];
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -23,6 +84,9 @@ const chipContainer = {
 };
 
 export const SkillsSection = () => {
+  const t = useTranslations();
+  const skillCategories = t.raw('skills.categories') as SkillCategory[];
+
   return (
     <section id="skills" className="py-16 sm:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,17 +100,17 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Skills & Technologies
+            {t('skills.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            The tools and technologies I use to bring ideas to life
+            {t('skills.subtitle')}
           </p>
         </motion.div>
 
         {/* 2×2 category cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {skillCategories.map((category, i) => {
-            const CategoryIcon = category.icon;
+            const CategoryIcon = CATEGORY_ICONS[category.icon] ?? Code;
             return (
               <motion.div
                 key={category.title}
@@ -81,7 +145,7 @@ export const SkillsSection = () => {
                     viewport={{ once: true, margin: '-40px' }}
                   >
                     {category.skills.map((skill) => {
-                      const SkillIcon = skill.icon;
+                      const SkillIcon = SKILL_ICONS[skill.icon] ?? Code;
                       return (
                         <motion.div
                           key={skill.name}

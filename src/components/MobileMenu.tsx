@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 
 /* ---------- animation variants (module-level, zero re-allocation) ---------- */
 
@@ -22,12 +22,6 @@ const itemVariants = {
   open: { y: 0, opacity: 1, transition: { duration: 0.5, ease: EASE } },
 } as const;
 
-const socialLinks = [
-  { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
-  { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
-  { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' },
-] as const;
-
 /* ---------- component ---------- */
 
 interface MobileMenuProps {
@@ -38,6 +32,18 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuProps) => {
+  const t = useTranslations();
+  const links = t.raw('links') as {
+    github: string;
+    linkedin: string;
+    email: string;
+  };
+
+  const socialLinks = [
+    { href: links.github, icon: Github, label: 'GitHub' },
+    { href: links.linkedin, icon: Linkedin, label: 'LinkedIn' },
+    { href: `mailto:${links.email}`, icon: Mail, label: 'Email' },
+  ] as const;
 
   return (
     <AnimatePresence>
@@ -52,12 +58,12 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-slate-100 dark:border-slate-900">
             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Menu
+              {t('navigation.menuTitle')}
             </span>
             <button
               onClick={onClose}
               className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
-              aria-label="Close menu"
+              aria-label={t('navigation.aria.closeMenu')}
             >
               <X className="h-8 w-8 text-slate-900 dark:text-white group-hover:rotate-90 transition-transform duration-300" />
             </button>

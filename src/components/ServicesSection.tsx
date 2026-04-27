@@ -1,10 +1,29 @@
 'use client';
 
 import { motion } from 'motion/react';
-import type { Service } from '../data/data';
-import { services } from '../data/data';
+import { useTranslations } from 'next-intl';
+import { Globe, Layers, Smartphone, Cloud, Brain } from 'lucide-react';
+
+type Service = {
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+  technologies: string[];
+};
+
+const SERVICE_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  Globe,
+  Layers,
+  Smartphone,
+  Cloud,
+  Brain,
+};
 
 export const ServicesSection = () => {
+  const t = useTranslations();
+  const services = t.raw('services.items') as Service[];
+
   return (
     <section id="services" className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,10 +35,10 @@ export const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Services
+            {t('services.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            Professional expertise to accelerate your software projects
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
@@ -39,7 +58,7 @@ export const ServicesSection = () => {
 };
 
 const ServiceCard = ({ service, index, cardClass = '' }: { service: Service; index: number; cardClass?: string }) => {
-  const Icon = service.icon;
+  const Icon = SERVICE_ICONS[service.icon] ?? Globe;
   return (
     <motion.div
       className={`group bg-slate-50 dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 transition-colors duration-300 hover:border-blue-300 dark:hover:border-blue-500 flex flex-col h-full ${cardClass}`}

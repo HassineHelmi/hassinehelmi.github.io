@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "./providers/theme-provider";
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,12 +10,13 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const META_DESCRIPTION =
-  "Full Stack Developer from Monastir, Tunisia. Specialized in Java, JavaScript, React, Spring Boot, and modern web technologies.";
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations();
+  const metaDescription = t('meta.description');
 
-export const metadata: Metadata = {
-  title: "Hassine Helmi - Full Stack Developer",
-  description: META_DESCRIPTION,
+  return {
+    title: t('meta.title'),
+    description: metaDescription,
   keywords: [
     "Full Stack Developer",
     "Software Engineer",
@@ -26,25 +29,29 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Hassine Helmi" }],
   openGraph: {
-    title: "Hassine Helmi - Full Stack Developer",
-    description: META_DESCRIPTION,
+    title: t('meta.title'),
+    description: metaDescription,
     type: "website",
-    locale: "en_US",
+    locale: (await getLocale()) === 'fr' ? 'fr_FR' : 'en_US',
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hassine Helmi - Full Stack Developer",
-    description: META_DESCRIPTION,
+    title: t('meta.title'),
+    description: metaDescription,
   },
-};
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} antialiased w-full overflow-x-clip`}
         suppressHydrationWarning
@@ -55,7 +62,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
