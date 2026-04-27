@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 import { ThemeProvider } from "../providers/theme-provider";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "../../i18n/routing";
 import { notFound } from "next/navigation";
 
@@ -67,6 +67,8 @@ export default async function RootLayout({
   if (!routing.locales.includes(locale as "en" | "fr")) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 
