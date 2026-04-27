@@ -8,7 +8,7 @@
     "menuTitle": "Menu",
     "aria": {
       "primary": "Principal",
-      "toggleMenu": "Basculer le menu de navigation",
+      "toggleMenu": "Afficher ou masquer le menu de navigation",
       "closeMenu": "Fermer le menu"
     },
     "items": [
@@ -29,19 +29,19 @@
   },
   "personalInfo": {
     "name": "Helmi Hassine",
-    "title": "Développeur Full Stack",
+    "title": "Développeur Full-Stack",
     "location": "Monastir, Tunisie",
-    "bio": "Je suis un développeur Full Stack tunisien, diplômé en informatique de l'EPI Digital School. J'ai de l'expérience dans la création d'applications full stack, la conception de solutions évolutives et la collaboration en équipe. J'aime concevoir des interfaces élégantes et résoudre des problèmes complexes avec un code efficace."
+    "bio": "Je suis un développeur Full-Stack tunisien, diplômé en informatique de l'EPI Digital School. J'ai de l'expérience dans la création d'applications full-stack, l'architecture de solutions évolutives et la collaboration en équipe. J'aime concevoir des interfaces élégantes et résoudre des problèmes complexes avec du code efficace."
   },
   "hero": {
     "badge": "Bonjour, je suis",
     "learnMore": "En savoir plus sur moi",
     "contact": "Me contacter",
-    "scroll": "Défiler"
+    "scroll": "Faire défiler"
   },
   "about": {
     "title": "À propos de moi",
-    "subtitle": "Découvrez davantage mon parcours et ma passion pour la technologie",
+    "subtitle": "Découvrez mon parcours et ma passion pour la technologie",
     "profileAlt": "Helmi Hassine - Ingénieur logiciel Full Stack",
     "stats": [
       { "value": "4+", "label": "Années d'expérience" },
@@ -50,7 +50,7 @@
   },
   "skills": {
     "title": "Compétences & Technologies",
-    "subtitle": "Les outils et technologies que j'utilise pour concrétiser les idées",
+    "subtitle": "Les outils et technologies que j'utilise pour donner vie aux idées",
     "categories": [
       {
         "title": "Langages de programmation",
@@ -103,59 +103,59 @@
     "subtitle": "Une expertise professionnelle pour accélérer vos projets logiciels",
     "items": [
       {
-        "title": "Développement web Full Stack",
-        "description": "Développement d'applications web de bout en bout avec des frameworks modernes et les meilleures pratiques.",
+        "title": "Développement Web Full-Stack",
+        "description": "Développement d'applications web de bout en bout à l'aide de frameworks modernes et des meilleures pratiques.",
         "icon": "Globe",
         "features": [
           "Applications React.js & Next.js",
-          "APIs Spring Boot & NestJS",
+          "API Spring Boot & NestJS",
           "Conception et intégration de bases de données",
-          "Authentification et autorisation"
+          "Authentification & autorisation"
         ],
         "technologies": ["React", "Next.js", "Spring Boot", "NestJS", "PostgreSQL", "TypeScript"]
       },
       {
         "title": "Développement UI/UX",
-        "description": "Création d'interfaces utilisateurs belles et responsives selon des principes de design modernes.",
+        "description": "Création d'interfaces utilisateur belles et responsives avec des principes de design modernes.",
         "icon": "Layers",
         "features": [
           "Bibliothèques de composants UI réutilisables",
           "Implémentation responsive",
           "Développement de design systems",
-          "Conversion Figma vers code"
+          "Conversion de Figma en code"
         ],
         "technologies": ["TailwindCSS", "Material UI", "Figma", "Storybook", "Sass"]
       },
       {
-        "title": "Développement mobile",
-        "description": "Applications mobiles cross-platform avec performances natives et excellente expérience utilisateur.",
+        "title": "Développement d'applications mobiles",
+        "description": "Applications mobiles multiplateformes avec performance native et excellente expérience utilisateur.",
         "icon": "Smartphone",
         "features": [
           "Développement React Native",
           "Applications Flutter",
           "Solutions multiplateformes",
-          "Publication sur les stores"
+          "Déploiement sur les stores"
         ],
         "technologies": ["React Native", "Flutter", "Firebase", "Android", "iOS"]
       },
       {
         "title": "Cloud & DevOps",
-        "description": "Infrastructure cloud évolutive et solutions de déploiement pour applications modernes.",
+        "description": "Infrastructure cloud évolutive et solutions de déploiement pour les applications modernes.",
         "icon": "Cloud",
         "features": [
           "Conteneurisation Docker",
           "Intégration des services AWS",
           "Mise en place de pipelines CI/CD",
-          "Architecture cloud"
+          "Conception d'architecture cloud"
         ],
         "technologies": ["Docker", "AWS", "GitHub Actions", "Jenkins", "Kubernetes"]
       },
       {
-        "title": "Solutions propulsées par l'IA",
-        "description": "Applications intelligentes avec intégration de l'IA et du machine learning.",
+        "title": "Solutions alimentées par l'IA",
+        "description": "Applications intelligentes avec intégration d'apprentissage automatique et d'IA.",
         "icon": "Brain",
         "features": [
-          "Systèmes de parsing IA",
+          "Systèmes d'analyse IA",
           "Moteurs de recommandation",
           "Applications de vision par ordinateur",
           "Traitement du langage naturel"
@@ -165,8 +165,8 @@
     ]
   },
   "projects": {
-    "title": "Projets phares",
-    "subtitle": "Une sélection de mes travaux récents, mettant en avant défis techniques et solutions créatives.",
+    "title": "Projets mis en avant",
+    "subtitle": "Une sélection de mes travaux récents, mettant en valeur les défis techniques et les solutions créatives.",
     "modal": {
       "closeAria": "Fermer les détails du projet",
       "code": "Code",
@@ -174,25 +174,25 @@
       "technologies": "Technologies"
     },
     "card": {
-      "noPreview": "Aperçu indisponible",
+      "noPreview": "Aucun aperçu disponible",
       "viewDetails": "Voir les détails",
       "githubAria": "Dépôt GitHub de {title}"
     },
     "controls": {
-      "scrollLeftAria": "Faire défiler les projets à gauche",
-      "scrollRightAria": "Faire défiler les projets à droite",
+      "scrollLeftAria": "Faire défiler les projets vers la gauche",
+      "scrollRightAria": "Faire défiler les projets vers la droite",
       "viewMoreGithub": "Voir plus sur GitHub"
     },
     "items": [
       {
         "title": "Iron-ERP",
-        "description": "Un système ERP entièrement personnalisé pour une entreprise du textile, axé sur la supply chain, les achats et la traçabilité des stocks avec des APIs évolutives et des flux de données optimisés.",
+        "description": "Un système ERP entièrement personnalisé pour une entreprise textile, axé sur la chaîne d'approvisionnement, les achats et la traçabilité des stocks avec des API évolutives et des flux de données optimisés.",
         "technologies": ["Node.js", "NestJS", "PostgreSQL", "Prisma", "React", "TypeScript", "GitHub Actions", "Firebase"],
         "features": [
-          "APIs REST évolutives pour produits, fournisseurs et bons de commande",
-          "Gestion des stocks de bout en bout avec suivi des entrepôts",
-          "Intégration d'un scanner code-barres pour la traçabilité au niveau des rouleaux",
-          "Optimisation des performances base de données et refactorisation legacy"
+          "API REST évolutives pour les produits, fournisseurs et commandes",
+          "Gestion des stocks de bout en bout avec suivi d'entrepôt",
+          "Intégration d'un scanner de codes-barres pour la traçabilité des rouleaux",
+          "Optimisation des performances de la base de données et refactorisation de l'ancien code"
         ],
         "github": "https://github.com/HassineHelmi",
         "screenshot": "/ironERP.png",
@@ -200,23 +200,23 @@
       },
       {
         "title": "Talent Cloud",
-        "description": "Une plateforme de recrutement full stack complète avec matching avancé des candidats, communication en temps réel et systèmes d'authentification intégrés.",
+        "description": "Une plateforme de recrutement full-stack complète avec correspondance avancée des candidats, communication en temps réel et authentification intégrée.",
         "technologies": ["Next.js", "Spring Boot", "Keycloak", "AWS", "PostgreSQL", "TypeScript"],
-        "features": ["Matching piloté par IA", "Messagerie temps réel", "Filtrage avancé", "Déploiement cloud"],
+        "features": ["Correspondance assistée par IA", "Messagerie temps réel", "Filtres avancés", "Déploiement cloud"],
         "github": "https://github.com/HassineHelmi",
         "screenshot": "/talent-cloud.png"
       },
       {
         "title": "Deal Hub",
-        "description": "Application marketplace cross-platform offrant une expérience fluide d'achat/vente avec notifications en temps réel et paiements sécurisés.",
+        "description": "Application marketplace multiplateforme permettant des expériences d'achat et de vente fluides avec notifications en temps réel et paiements sécurisés.",
         "technologies": ["React Native", "Firebase", "JavaScript", "Stripe API"],
-        "features": ["Compatibilité multiplateforme", "Notifications temps réel", "Paiements sécurisés", "Authentification utilisateur"],
+        "features": ["Compatibilité multiplateforme", "Notifications en temps réel", "Paiements sécurisés", "Authentification utilisateur"],
         "github": "https://github.com/HassineHelmi",
         "screenshot": "/dealhub.png"
       },
       {
         "title": "Bankerize UI Toolkit",
-        "description": "Bibliothèque complète de composants construite avec des pratiques modernes, incluant composants réutilisables et guidelines de design system.",
+        "description": "Bibliothèque de composants complète construite avec des pratiques modernes, avec composants réutilisables et guide de design system.",
         "technologies": ["React", "TailwindCSS", "Storybook", "NX Monorepo", "TypeScript"],
         "features": ["Composants réutilisables", "Design system", "Documentation", "Suite de tests"],
         "github": "https://github.com/HassineHelmi",
@@ -231,25 +231,25 @@
     "loading": "Chargement du CV...",
     "viewerTitle": "Visionneuse PDF du CV",
     "noPreview": "L'aperçu PDF n'est pas disponible. Veuillez télécharger le CV pour le consulter.",
-    "cantView": "Vous ne pouvez pas voir le PDF ? Cliquez ci-dessous pour le télécharger directement.",
+    "cantView": "Impossible de voir le PDF ? Cliquez ci-dessous pour le télécharger directement.",
     "downloadPdf": "Télécharger le PDF",
     "downloadName": "Helmi_Hassine_CV_FR.pdf"
   },
   "contact": {
-    "badge": "✨ Créons quelque chose d'exceptionnel",
+    "badge": "✨ Créons quelque chose d'extraordinaire",
     "title": "Prêt à démarrer votre prochain projet ?",
-    "subtitle": "Je suis actuellement disponible pour des missions freelance et ouvert à de nouvelles opportunités. Si vous avez un projet qui a besoin d'une touche créative, je serais ravi d'en discuter.",
+    "subtitle": "Je suis actuellement disponible pour des missions freelance et ouvert à de nouvelles opportunités. Si vous avez un projet qui mérite une touche créative, j'aimerais en discuter.",
     "sayHello": "Dire bonjour",
     "methods": {
-      "email": { "label": "Email" },
+      "email": { "label": "E-mail" },
       "phone": { "label": "Téléphone" },
-      "whatsapp": { "label": "WhatsApp", "value": "M'écrire" },
+      "whatsapp": { "label": "WhatsApp", "value": "M'envoyer un message" },
       "linkedin": { "label": "LinkedIn", "value": "Se connecter" },
       "github": { "label": "GitHub", "value": "Suivre" }
     }
   },
   "footer": {
-    "about": "Je conçois des expériences digitales avec passion et précision. Spécialisé dans le développement d'applications web modernes qui répondent à de vrais besoins.",
+    "about": "Créer des expériences numériques avec passion et précision. Spécialisé dans la création d'applications web modernes qui résolvent des problèmes réels.",
     "navigationTitle": "Navigation",
     "contactTitle": "Contact",
     "navItems": ["Accueil", "À propos", "Projets", "Contact"],
