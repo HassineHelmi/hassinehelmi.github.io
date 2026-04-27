@@ -3,13 +3,16 @@
 import { motion } from 'motion/react';
 import { Download, FileText } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { Button } from './Button';
 
-const RESUME_PATH = '/ResumeHassineHelmiEN.pdf';
-const RESUME_DOWNLOAD_NAME = 'Helmi_Hassine_Resume.pdf';
-
 export const ResumeSection = () => {
+  const t = useTranslations('Resume');
+  const locale = useLocale();
   const [isLoading, setIsLoading] = useState(true);
+
+  const RESUME_PATH = locale === 'fr' ? '/ResumeHassineHelmiFR.pdf' : '/ResumeHassineHelmiEN.pdf';
+  const RESUME_DOWNLOAD_NAME = locale === 'fr' ? 'Helmi_Hassine_CV.pdf' : 'Helmi_Hassine_Resume.pdf';
 
   /**
    * PDF `onLoad` doesn't reliably fire in Chrome/Firefox because the
@@ -31,10 +34,10 @@ export const ResumeSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            My Resume
+            {t('title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            View my professional experience and qualifications
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -51,7 +54,7 @@ export const ResumeSection = () => {
               size="lg"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Resume
+              {t('downloadButton')}
             </Button>
           </div>
 
@@ -81,7 +84,7 @@ export const ResumeSection = () => {
                 <a href={RESUME_PATH} download={RESUME_DOWNLOAD_NAME}>
                   <Button>
                     <Download className="mr-2 h-5 w-5" />
-                    Download Resume
+                    {t('downloadButton')}
                   </Button>
                 </a>
               </div>

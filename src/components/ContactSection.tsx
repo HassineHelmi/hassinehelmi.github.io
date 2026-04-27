@@ -2,18 +2,20 @@
 
 import { motion } from 'motion/react';
 import { Mail, Phone, Github, Linkedin, MessageSquare, ArrowRight } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { contactInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { Button } from './Button';
 
 const contactMethods = [
-  { icon: Mail, label: 'Email', value: personalInfo.contact.email, href: `mailto:${personalInfo.contact.email}`, color: 'bg-blue-500' },
-  { icon: Phone, label: 'Phone', value: personalInfo.contact.phone, href: `tel:${personalInfo.contact.phone}`, color: 'bg-green-500' },
-  { icon: MessageSquare, label: 'WhatsApp', value: 'Message me', href: personalInfo.contact.whatsapp, color: 'bg-emerald-500' },
-  { icon: Linkedin, label: 'LinkedIn', value: 'Connect', href: personalInfo.contact.linkedin, color: 'bg-blue-700' },
-  { icon: Github, label: 'GitHub', value: 'Follow', href: personalInfo.contact.github, color: 'bg-slate-800' },
+  { icon: Mail, label: 'Email', value: contactInfo.email, href: `mailto:${contactInfo.email}`, color: 'bg-blue-500' },
+  { icon: Phone, label: 'Phone', value: contactInfo.phone, href: `tel:${contactInfo.phone}`, color: 'bg-green-500' },
+  { icon: MessageSquare, label: 'WhatsApp', value: 'Message me', href: contactInfo.whatsapp, color: 'bg-emerald-500' },
+  { icon: Linkedin, label: 'LinkedIn', value: 'Connect', href: contactInfo.linkedin, color: 'bg-blue-700' },
+  { icon: Github, label: 'GitHub', value: 'Follow', href: contactInfo.github, color: 'bg-slate-800' },
 ] as const;
 
 export const ContactSection = () => {
+  const t = useTranslations('Contact');
 
   return (
     <section id="contact" className="py-20 sm:py-24">
@@ -31,16 +33,15 @@ export const ContactSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            ✨ Let&apos;s Create Something Amazing
+            ✨ {t('title')}
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
-            Ready to start your next project?
+            {t('title')}
           </h2>
           
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            I&apos;m currently available for freelance work and open to new opportunities. 
-            If you have a project that needs some creative touch, I&apos;d love to hear about it.
+            {t('subtitle')}
           </p>
 
           <motion.div
@@ -50,12 +51,12 @@ export const ContactSection = () => {
             viewport={{ once: true }}
           >
             <Button
-              onClick={() => { window.location.href = `mailto:${personalInfo.contact.email}`; }}
+              onClick={() => { window.location.href = `mailto:${contactInfo.email}`; }}
               size="lg"
               className="group text-lg px-8 py-4 rounded-full"
             >
               <Mail className="mr-2 h-5 w-5" />
-              Say Hello
+              {t('form.sendButton')}
               <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>

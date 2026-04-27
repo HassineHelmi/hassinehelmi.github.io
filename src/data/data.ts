@@ -63,23 +63,18 @@ export interface SkillCategory {
   }[];
 }
 
-export const personalInfo = {
-  name: "Helmi Hassine",
-  title: "Full-Stack Developer",
-  location: "Monastir, Tunisia",
-  bio: "I am a Full-Stack Developer from Tunisia, with a Computer Science degree from EPI Digital School. I have experience building full-stack applications, architecting scalable solutions, and collaborating with teams. I enjoy creating elegant UI components and solving complex problems with efficient code.",
-  contact: {
-    phone: "+216 28372002",
-    email: "helmi.hassine1@gmail.com",
-    linkedin: "https://linkedin.com/in/helmi-hassine",
-    github: "https://github.com/HassineHelmi",
-    whatsapp: "https://wa.me/21628372002"
-  }
+export const contactInfo = {
+  phone: "+216 28372002",
+  email: "helmi.hassine1@gmail.com",
+  linkedin: "https://linkedin.com/in/helmi-hassine",
+  github: "https://github.com/HassineHelmi",
+  whatsapp: "https://wa.me/21628372002"
 };
 
-export const skillCategories: SkillCategory[] = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getSkillCategories = (t: any): SkillCategory[] => [
   {
-    title: 'Programming Languages',
+    title: t('categories.programming'),
     icon: Code,
     skills: [
       { name: 'Java', icon: Code, level: 90 },
@@ -89,7 +84,7 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    title: 'Frontend',
+    title: t('categories.frontend'),
     icon: Smartphone,
     skills: [
       { name: 'React.js', icon: SiReact, level: 90 },
@@ -100,7 +95,7 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    title: 'Backend & Databases',
+    title: t('categories.backend'),
     icon: Database,
     skills: [
       { name: 'Spring Boot', icon: SiSpringboot, level: 85 },
@@ -112,7 +107,7 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    title: 'Mobile & Tools',
+    title: t('categories.mobile'),
     icon: Settings,
     skills: [
       { name: 'React Native', icon: SiReact, level: 80 },
@@ -124,162 +119,143 @@ export const skillCategories: SkillCategory[] = [
   }
 ];
 
-export const services: Service[] = [
-  {
-    title: "Full-Stack Web Development",
-    description: "End-to-end web application development using modern frameworks and best practices.",
-    icon: Globe,
-    features: [
-      "React.js & Next.js Applications",
-      "Spring Boot & NestJS APIs",
-      "Database Design & Integration",
-      "Authentication & Authorization"
-    ],
-    technologies: ["React", "Next.js", "Spring Boot", "NestJS", "PostgreSQL", "TypeScript"]
-  },
-  {
-    title: "UI/UX Development",
-    description: "Creating beautiful, responsive user interfaces with modern design principles.",
-    icon: Layers,
-    features: [
-      "Reusable UI Component Libraries",
-      "Responsive Design Implementation",
-      "Design System Development",
-      "Figma to Code Conversion"
-    ],
-    technologies: ["TailwindCSS", "Material UI", "Figma", "Storybook", "Sass"]
-  },
-  {
-    title: "Mobile App Development",
-    description: "Cross-platform mobile applications with native performance and user experience.",
-    icon: Smartphone,
-    features: [
-      "React Native Development",
-      "Flutter Applications",
-      "Cross-Platform Solutions",
-      "App Store Deployment"
-    ],
-    technologies: ["React Native", "Flutter", "Firebase", "Android", "iOS"]
-  },
-  {
-    title: "Cloud & DevOps",
-    description: "Scalable cloud infrastructure and deployment solutions for modern applications.",
-    icon: Cloud,
-    features: [
-      "Docker Containerization",
-      "AWS Services Integration",
-      "CI/CD Pipeline Setup",
-      "Cloud Architecture Design"
-    ],
-    technologies: ["Docker", "AWS", "GitHub Actions", "Jenkins", "Kubernetes"]
-  },
-  {
-    title: "AI-Powered Solutions",
-    description: "Intelligent applications with machine learning and AI integration capabilities.",
-    icon: Brain,
-    features: [
-      "AI-Parsing Systems",
-      "Recommendation Engines",
-      "Computer Vision Applications",
-      "Natural Language Processing"
-    ],
-    technologies: ["Python", "TensorFlow", "OpenCV", "Machine Learning", "AI/ML"]
-  }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getServices = (t: any): Service[] => {
+  const items = t.raw('items');
+  return [
+    {
+      title: items[0].title,
+      description: items[0].description,
+      icon: Globe,
+      features: items[0].features,
+      technologies: ["React", "Next.js", "Spring Boot", "NestJS", "PostgreSQL", "TypeScript"]
+    },
+    {
+      title: items[1].title,
+      description: items[1].description,
+      icon: Layers,
+      features: items[1].features,
+      technologies: ["TailwindCSS", "Material UI", "Figma", "Storybook", "Sass"]
+    },
+    {
+      title: items[2].title,
+      description: items[2].description,
+      icon: Smartphone,
+      features: items[2].features,
+      technologies: ["React Native", "Flutter", "Firebase", "Android", "iOS"]
+    },
+    {
+      title: items[3].title,
+      description: items[3].description,
+      icon: Cloud,
+      features: items[3].features,
+      technologies: ["Docker", "AWS", "GitHub Actions", "Jenkins", "Kubernetes"]
+    },
+    {
+      title: items[4].title,
+      description: items[4].description,
+      icon: Brain,
+      features: items[4].features,
+      technologies: ["Python", "TensorFlow", "OpenCV", "Machine Learning", "AI/ML"]
+    }
+  ];
+};
 
-export const experiences: Experience[] = [
-  {
-    title: 'End of Studies Internship',
-    company: 'Tekboot Solutions',
-    period: 'Feb 2025 - July 2025',
-    description: 'Developed a comprehensive recruitment platform using Next.js and Spring Boot with AI-powered resume parsing and intelligent job recommendation engine.',
-    technologies: ['Next.js', 'Spring Boot', 'Java', 'TypeScript', 'AI/ML', 'PostgreSQL']
-  },
-  {
-    title: 'Frontend Developer Intern',
-    company: 'Proxym IT',
-    period: 'June 2024 - July 2024',
-    description: 'Built a comprehensive UI toolkit library using NX monorepo architecture with React and TailwindCSS for enhanced development workflow.',
-    technologies: ['React', 'TailwindCSS', 'NX Monorepo', 'TypeScript', 'Storybook']
-  },
-  {
-    title: 'Software Developer Intern',
-    company: 'Iron Tech',
-    period: 'June 2023 - Aug 2023',
-    description: 'Developed UI toolkit and reusable components, focusing on component architecture and design system implementation.',
-    technologies: ['React', 'JavaScript', 'CSS3', 'Component Design', 'Git']
-  },
-  {
-    title: 'Smart Mirror Project',
-    company: 'Personal Project',
-    period: '2023',
-    description: 'Created an innovative IoT solution featuring face recognition, voice recognition, and health monitoring capabilities.',
-    technologies: ['IoT', 'Python', 'Computer Vision', 'Voice Recognition', 'Raspberry Pi']
-  }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getExperiences = (t: any): Experience[] => {
+  const items = t.raw('items');
+  return [
+    {
+      title: items[0].title,
+      company: items[0].company,
+      period: items[0].period,
+      description: items[0].description,
+      technologies: ['Next.js', 'Spring Boot', 'Java', 'TypeScript', 'AI/ML', 'PostgreSQL']
+    },
+    {
+      title: items[1].title,
+      company: items[1].company,
+      period: items[1].period,
+      description: items[1].description,
+      technologies: ['React', 'TailwindCSS', 'NX Monorepo', 'TypeScript', 'Storybook']
+    },
+    {
+      title: items[2].title,
+      company: items[2].company,
+      period: items[2].period,
+      description: items[2].description,
+      technologies: ['React', 'JavaScript', 'CSS3', 'Component Design', 'Git']
+    },
+    {
+      title: items[3].title,
+      company: items[3].company,
+      period: items[3].period,
+      description: items[3].description,
+      technologies: ['IoT', 'Python', 'Computer Vision', 'Voice Recognition', 'Raspberry Pi']
+    }
+  ];
+};
 
-export const projects: Project[] = [
-  {
-    title: 'Iron-ERP',
-    description: 'A fully customized ERP system for a textile-sector company, focused on supply chain, purchasing, and inventory traceability with scalable APIs and optimized data workflows.',
-    technologies: ['Node.js', 'NestJS', 'PostgreSQL', 'Prisma', 'React', 'TypeScript', 'GitHub Actions', 'Firebase'],
-    features: ['Scalable REST APIs for products, suppliers, and purchase orders', 'End-to-end inventory management with warehouse tracking', 'Barcode scanner integration for roll-level traceability', 'Database performance optimization and legacy code refactoring'],
-    github: 'https://github.com/HassineHelmi',
-    screenshot: '/ironERP.png',
-    screenshotBgClass: 'bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700'
-  },
-  {
-    title: 'Talent Cloud',
-    description: 'A comprehensive full-stack recruitment platform featuring advanced candidate matching, real-time communication, and integrated authentication systems.',
-    technologies: ['Next.js', 'Spring Boot', 'Keycloak', 'AWS', 'PostgreSQL', 'TypeScript'],
-    features: ['AI-powered matching', 'Real-time messaging', 'Advanced filtering', 'Cloud deployment'],
-    github: 'https://github.com/HassineHelmi',
-    screenshot: '/talent-cloud.png'
-  },
-  {
-    title: 'Deal Hub',
-    description: 'Cross-platform marketplace application enabling seamless buying and selling experiences with real-time notifications and secure payment integration.',
-    technologies: ['React Native', 'Firebase', 'JavaScript', 'Stripe API'],
-    features: ['Cross-platform compatibility', 'Real-time notifications', 'Secure payments', 'User authentication'],
-    github: 'https://github.com/HassineHelmi',
-    screenshot: '/dealhub.png'
-  },
-  {
-    title: 'Bankerize UI Toolkit',
-    description: 'Comprehensive component library built with modern development practices, featuring reusable components and design system guidelines.',
-    technologies: ['React', 'TailwindCSS', 'Storybook', 'NX Monorepo', 'TypeScript'],
-    features: ['Reusable components', 'Design system', 'Documentation', 'Testing suite'],
-    github: 'https://github.com/HassineHelmi',
-    screenshot: '/bankerize-ui-toolkit.png'
-  }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getProjects = (t: any): Project[] => {
+  const items = t.raw('items');
+  return [
+    {
+      title: items[0].title,
+      description: items[0].description,
+      technologies: ['Node.js', 'NestJS', 'PostgreSQL', 'Prisma', 'React', 'TypeScript', 'GitHub Actions', 'Firebase'],
+      features: items[0].features,
+      github: 'https://github.com/HassineHelmi',
+      screenshot: '/ironERP.png',
+      screenshotBgClass: 'bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700'
+    },
+    {
+      title: items[1].title,
+      description: items[1].description,
+      technologies: ['Next.js', 'Spring Boot', 'Keycloak', 'AWS', 'PostgreSQL', 'TypeScript'],
+      features: items[1].features,
+      github: 'https://github.com/HassineHelmi',
+      screenshot: '/talent-cloud.png'
+    },
+    {
+      title: items[2].title,
+      description: items[2].description,
+      technologies: ['React Native', 'Firebase', 'JavaScript', 'Stripe API'],
+      features: items[2].features,
+      github: 'https://github.com/HassineHelmi',
+      screenshot: '/dealhub.png'
+    },
+    {
+      title: items[3].title,
+      description: items[3].description,
+      technologies: ['React', 'TailwindCSS', 'Storybook', 'NX Monorepo', 'TypeScript'],
+      features: items[3].features,
+      github: 'https://github.com/HassineHelmi',
+      screenshot: '/bankerize-ui-toolkit.png'
+    }
+  ];
+};
 
-export const education = [
-  {
-    degree: 'Software Engineering Degree',
-    institution: 'EPI Digital School',
-    period: '2022-2025',
-    description: 'Comprehensive curriculum covering software architecture, modern development practices, and emerging technologies.'
-  },
-  {
-    degree: 'Bachelor\'s in Electronics, Electrical, Automation',
-    institution: 'ISSAT Sousse',
-    period: '2019-2022',
-    description: 'Strong foundation in electronics and automation systems with practical experience in hardware-software integration.'
-  }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getEducation = (t: any) => {
+  return t.raw('items');
+};
 
-export const certifications: Certification[] = [
-  {
-    title: 'Microsoft Certified: Azure Fundamentals',
-    issuer: 'Microsoft',
-    date: '2024',
-    credentialId: 'AZ-900'
-  },
-  {
-    title: 'CCNA: Switching, Routing, and Wireless Essentials',
-    issuer: 'Cisco',
-    date: '2023',
-    credentialId: 'CCNA-SRWE'
-  }
-];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getCertifications = (t: any): Certification[] => {
+  const items = t.raw('items');
+  return [
+    {
+      title: items[0].title,
+      issuer: items[0].issuer,
+      date: items[0].date,
+      credentialId: 'AZ-900'
+    },
+    {
+      title: items[1].title,
+      issuer: items[1].issuer,
+      date: items[1].date,
+      credentialId: 'CCNA-SRWE'
+    }
+  ];
+};

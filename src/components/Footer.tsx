@@ -2,19 +2,21 @@
 
 import { motion } from 'motion/react';
 import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { contactInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { scrollToSection } from '../lib/scroll';
 
 const socialLinks = [
-  { icon: Github, href: personalInfo.contact.github, label: 'GitHub' },
-  { icon: Linkedin, href: personalInfo.contact.linkedin, label: 'LinkedIn' },
-  { icon: Mail, href: `mailto:${personalInfo.contact.email}`, label: 'Email' },
+  { icon: Github, href: contactInfo.github, label: 'GitHub' },
+  { icon: Linkedin, href: contactInfo.linkedin, label: 'LinkedIn' },
+  { icon: Mail, href: `mailto:${contactInfo.email}`, label: 'Email' },
 ] as const;
 
 const FOOTER_NAV = ['Home', 'About', 'Projects', 'Contact'] as const;
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const t = useTranslations('Footer');
+  const tNav = useTranslations('Navigation');
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
@@ -27,11 +29,10 @@ export const Footer = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-                {personalInfo.name}
+                Helmi Hassine
               </h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-sm mb-6">
-                Crafting digital experiences with passion and precision. 
-                Specialized in building modern web applications that solve real-world problems.
+                Crafting digital experiences with passion and precision.
               </p>
               <div className="flex gap-4">
                 {socialLinks.map((link) => (
@@ -64,7 +65,7 @@ export const Footer = () => {
                     onClick={() => scrollToSection(item.toLowerCase())}
                     className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    {item}
+                    {tNav(item.toLowerCase())}
                   </button>
                 </li>
               ))}
@@ -79,10 +80,10 @@ export const Footer = () => {
           >
             <h4 className="font-semibold text-slate-900 dark:text-white mb-6">Contact</h4>
             <ul className="space-y-3 text-slate-600 dark:text-slate-400">
-              <li>{personalInfo.location}</li>
+              <li>Monastir, Tunisia</li>
               <li>
-                <a href={`mailto:${personalInfo.contact.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  {personalInfo.contact.email}
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {contactInfo.email}
                 </a>
               </li>
             </ul>
@@ -91,7 +92,7 @@ export const Footer = () => {
 
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 dark:text-slate-500 text-sm">
-            © {currentYear} {personalInfo.name}. All rights reserved.
+            {t('rights')}
           </p>
           <div className="flex items-center text-slate-500 dark:text-slate-500 text-sm">
             <span>Made with</span>

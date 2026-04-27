@@ -2,21 +2,28 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import { scrollToSection } from '../lib/scroll';
-
-const navItems = [
-  { name: 'Home', id: 'home' },
-  { name: 'About', id: 'about' },
-  { name: 'Skills', id: 'skills' },
-  { name: 'Services', id: 'services' },
-  { name: 'Projects', id: 'projects' },
-  { name: 'Resume', id: 'resume' },
-  { name: 'Contact', id: 'contact' },
-];
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname, useRouter } from '../i18n/routing';
 
 export const Navigation = () => {
+  const t = useTranslations('Navigation');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const navItems = [
+    { name: t('home'), id: 'home' },
+    { name: t('about'), id: 'about' },
+    { name: t('skills'), id: 'skills' },
+    { name: t('services'), id: 'services' },
+    { name: t('projects'), id: 'projects' },
+    { name: t('resume'), id: 'resume' },
+    { name: t('contact'), id: 'contact' },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -75,16 +82,27 @@ export const Navigation = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="flex items-center space-x-2">
               <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors"
-                aria-label="Toggle navigation menu"
-                aria-expanded={isOpen}
+                onClick={() => router.replace(pathname, { locale: locale === 'en' ? 'fr' : 'en' })}
+                className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-800 rounded-full transition-all duration-200"
+                aria-label="Toggle Language"
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                <Globe className="w-4 h-4" />
+                <span>{locale === 'en' ? 'FR' : 'EN'}</span>
               </button>
+
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="p-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors"
+                  aria-label="Toggle navigation menu"
+                  aria-expanded={isOpen}
+                >
+                  {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
             </div>
           </div>
         </div>

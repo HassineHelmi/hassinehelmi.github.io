@@ -1,0 +1,233 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "services": "Services",
+    "projects": "Projects",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Hi, I'm",
+    "title": "Full-Stack Developer",
+    "downloadCv": "Download CV",
+    "contactMe": "Contact Me",
+    "viewProjects": "View Projects",
+    "scrollDown": "Scroll Down"
+  },
+  "About": {
+    "title": "About Me",
+    "subtitle": "Here's a little bit about me and my journey in tech.",
+    "bio": "I am a Full-Stack Developer from Tunisia, with a Computer Science degree from EPI Digital School. I have experience building full-stack applications, architecting scalable solutions, and collaborating with teams. I enjoy creating elegant UI components and solving complex problems with efficient code.",
+    "location": "Monastir, Tunisia"
+  },
+  "Skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies I work with",
+    "categories": {
+      "programming": "Programming Languages",
+      "frontend": "Frontend",
+      "backend": "Backend & Databases",
+      "mobile": "Mobile & Tools"
+    }
+  },
+  "Services": {
+    "title": "My Services",
+    "subtitle": "What I can do for you",
+    "items": [
+      {
+        "title": "Full-Stack Web Development",
+        "description": "End-to-end web application development using modern frameworks and best practices.",
+        "features": [
+          "React.js & Next.js Applications",
+          "Spring Boot & NestJS APIs",
+          "Database Design & Integration",
+          "Authentication & Authorization"
+        ]
+      },
+      {
+        "title": "UI/UX Development",
+        "description": "Creating beautiful, responsive user interfaces with modern design principles.",
+        "features": [
+          "Reusable UI Component Libraries",
+          "Responsive Design Implementation",
+          "Design System Development",
+          "Figma to Code Conversion"
+        ]
+      },
+      {
+        "title": "Mobile App Development",
+        "description": "Cross-platform mobile applications with native performance and user experience.",
+        "features": [
+          "React Native Development",
+          "Flutter Applications",
+          "Cross-Platform Solutions",
+          "App Store Deployment"
+        ]
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Scalable cloud infrastructure and deployment solutions for modern applications.",
+        "features": [
+          "Docker Containerization",
+          "AWS Services Integration",
+          "CI/CD Pipeline Setup",
+          "Cloud Architecture Design"
+        ]
+      },
+      {
+        "title": "AI-Powered Solutions",
+        "description": "Intelligent applications with machine learning and AI integration capabilities.",
+        "features": [
+          "AI-Parsing Systems",
+          "Recommendation Engines",
+          "Computer Vision Applications",
+          "Natural Language Processing"
+        ]
+      }
+    ]
+  },
+  "Experience": {
+    "title": "Experience",
+    "subtitle": "My professional journey",
+    "items": [
+      {
+        "title": "End of Studies Internship",
+        "company": "Tekboot Solutions",
+        "period": "Feb 2025 - July 2025",
+        "description": "Developed a comprehensive recruitment platform using Next.js and Spring Boot with AI-powered resume parsing and intelligent job recommendation engine."
+      },
+      {
+        "title": "Frontend Developer Intern",
+        "company": "Proxym IT",
+        "period": "June 2024 - July 2024",
+        "description": "Built a comprehensive UI toolkit library using NX monorepo architecture with React and TailwindCSS for enhanced development workflow."
+      },
+      {
+        "title": "Software Developer Intern",
+        "company": "Iron Tech",
+        "period": "June 2023 - Aug 2023",
+        "description": "Developed UI toolkit and reusable components, focusing on component architecture and design system implementation."
+      },
+      {
+        "title": "Smart Mirror Project",
+        "company": "Personal Project",
+        "period": "2023",
+        "description": "Created an innovative IoT solution featuring face recognition, voice recognition, and health monitoring capabilities."
+      }
+    ]
+  },
+  "Education": {
+    "title": "Education",
+    "items": [
+      {
+        "degree": "Software Engineering Degree",
+        "institution": "EPI Digital School",
+        "period": "2022-2025",
+        "description": "Comprehensive curriculum covering software architecture, modern development practices, and emerging technologies."
+      },
+      {
+        "degree": "Bachelor's in Electronics, Electrical, Automation",
+        "institution": "ISSAT Sousse",
+        "period": "2019-2022",
+        "description": "Strong foundation in electronics and automation systems with practical experience in hardware-software integration."
+      }
+    ]
+  },
+  "Certifications": {
+    "title": "Certifications",
+    "items": [
+      {
+        "title": "Microsoft Certified: Azure Fundamentals",
+        "issuer": "Microsoft",
+        "date": "2024"
+      },
+      {
+        "title": "CCNA: Switching, Routing, and Wireless Essentials",
+        "issuer": "Cisco",
+        "date": "2023"
+      }
+    ]
+  },
+  "Projects": {
+    "title": "Featured Projects",
+    "subtitle": "Some of my recent work",
+    "viewDemo": "View Demo",
+    "sourceCode": "Source Code",
+    "keyFeatures": "Key Features",
+    "technologies": "Technologies Used",
+    "items": [
+      {
+        "title": "Iron-ERP",
+        "description": "A fully customized ERP system for a textile-sector company, focused on supply chain, purchasing, and inventory traceability with scalable APIs and optimized data workflows.",
+        "features": [
+          "Scalable REST APIs for products, suppliers, and purchase orders",
+          "End-to-end inventory management with warehouse tracking",
+          "Barcode scanner integration for roll-level traceability",
+          "Database performance optimization and legacy code refactoring"
+        ]
+      },
+      {
+        "title": "Talent Cloud",
+        "description": "A comprehensive full-stack recruitment platform featuring advanced candidate matching, real-time communication, and integrated authentication systems.",
+        "features": [
+          "AI-powered matching",
+          "Real-time messaging",
+          "Advanced filtering",
+          "Cloud deployment"
+        ]
+      },
+      {
+        "title": "Deal Hub",
+        "description": "Cross-platform marketplace application enabling seamless buying and selling experiences with real-time notifications and secure payment integration.",
+        "features": [
+          "Cross-platform compatibility",
+          "Real-time notifications",
+          "Secure payments",
+          "User authentication"
+        ]
+      },
+      {
+        "title": "Bankerize UI Toolkit",
+        "description": "Comprehensive component library built with modern development practices, featuring reusable components and design system guidelines.",
+        "features": [
+          "Reusable components",
+          "Design system",
+          "Documentation",
+          "Testing suite"
+        ]
+      }
+    ]
+  },
+  "Resume": {
+    "title": "Resume",
+    "subtitle": "View my full resume for more details about my experience and skills.",
+    "downloadButton": "Download Resume"
+  },
+  "Contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's work together. I'm currently open for new opportunities.",
+    "form": {
+      "nameLabel": "Your Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Your Email",
+      "emailPlaceholder": "john@example.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "sendButton": "Send Message",
+      "sending": "Sending..."
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Email is invalid",
+      "messageRequired": "Message is required"
+    },
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again later."
+  },
+  "Footer": {
+    "rights": "© 2024 Helmi Hassine. All rights reserved."
+  }
+}

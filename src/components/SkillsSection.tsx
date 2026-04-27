@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { skillCategories } from '../data/data';
+import { getSkillCategories } from '../data/data';
+import { useTranslations } from 'next-intl';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -23,6 +24,9 @@ const chipContainer = {
 };
 
 export const SkillsSection = () => {
+  const t = useTranslations('Skills');
+  const skillCategories = getSkillCategories(t);
+
   return (
     <section id="skills" className="py-16 sm:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,10 +40,10 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Skills & Technologies
+            {t('title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            The tools and technologies I use to bring ideas to life
+            {t('subtitle')}
           </p>
         </motion.div>
 

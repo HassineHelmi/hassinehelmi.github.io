@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Github, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { projects } from '../data/data';
+import { getProjects } from '../data/data';
 import type { Project } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { Button } from './Button';
 
 /* ------------------------------------------------------------------ */
@@ -17,9 +18,12 @@ const modalTransition = { type: 'spring', damping: 25, stiffness: 300 } as const
 const ProjectModal = ({
   project,
   onClose,
+  t
 }: {
   project: Project;
   onClose: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: any;
 }) => {
   /** Lock body scroll while the modal is mounted */
   useEffect(() => {
@@ -105,7 +109,7 @@ const ProjectModal = ({
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
-                  Key Features
+                  {t('keyFeatures')}
                 </h4>
                 <ul className="space-y-3">
                   {project.features.map((feature, i) => (
@@ -119,7 +123,7 @@ const ProjectModal = ({
 
               <div>
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
-                  Technologies
+                  {t('technologies')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
@@ -232,6 +236,9 @@ const ProjectCard = ({
 /* ------------------------------------------------------------------ */
 
 export const ProjectsSection = () => {
+  const t = useTranslations('Projects');
+  const projects = getProjects(t);
+  
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -276,10 +283,10 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Featured Projects
+            {t('title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            A showcase of my recent work, highlighting technical challenges and creative solutions.
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -342,7 +349,7 @@ export const ProjectsSection = () => {
       {/* Project detail modal */}
       <AnimatePresence>
         {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={closeModal} />
+          <ProjectModal project={selectedProject} onClose={closeModal} t={t} />
         )}
       </AnimatePresence>
     </section>

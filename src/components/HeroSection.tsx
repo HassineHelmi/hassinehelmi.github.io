@@ -2,18 +2,22 @@
 
 import { motion } from 'motion/react';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { contactInfo } from '../data/data';
+import { useTranslations } from 'next-intl';
 import { Button } from './Button';
 import { ParallaxElement } from './ParallaxElement';
 import { scrollToSection } from '../lib/scroll';
 
 const socialLinks = [
-  { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
-  { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
-  { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' },
+  { href: contactInfo.github, icon: Github, label: 'GitHub' },
+  { href: contactInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  { href: `mailto:${contactInfo.email}`, icon: Mail, label: 'Email' },
 ] as const;
 
 export const HeroSection = () => {
+  const tHero = useTranslations('Hero');
+  const tAbout = useTranslations('About');
+
   return (
     <section id="home" className="min-h-dvh flex items-center justify-center pt-16 sm:pt-20 relative overflow-hidden">
       {/* Abstract Background Elements with Parallax */}
@@ -55,7 +59,7 @@ export const HeroSection = () => {
             >
               👋
             </motion.span>
-            <span className="text-sm font-medium">Hello, I&apos;m</span>
+            <span className="text-sm font-medium">{tHero('greeting')}</span>
           </motion.div>
 
           <motion.h1
@@ -65,7 +69,7 @@ export const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">
-              {personalInfo.name}
+              Helmi Hassine
             </span>
           </motion.h1>
 
@@ -75,7 +79,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            {personalInfo.title}
+            {tHero('title')}
           </motion.h2>
 
           <motion.p
@@ -84,7 +88,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            {personalInfo.bio}
+            {tAbout('bio')}
           </motion.p>
 
           <motion.div 
@@ -94,11 +98,11 @@ export const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
           >
             <Button
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('projects')}
               size="lg"
               className="w-full sm:w-auto"
             >
-              Learn More About Me
+              {tHero('viewProjects')}
             </Button>
             <Button
               onClick={() => scrollToSection('contact')}
@@ -106,7 +110,7 @@ export const HeroSection = () => {
               size="lg"
               className="w-full sm:w-auto"
             >
-              Get In Touch
+              {tHero('contactMe')}
             </Button>
           </motion.div>
 
@@ -145,7 +149,7 @@ export const HeroSection = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <span className="text-xs font-medium mb-2 tracking-widest uppercase opacity-70">Scroll</span>
+          <span className="text-xs font-medium mb-2 tracking-widest uppercase opacity-70">{tHero('scrollDown')}</span>
           <ChevronDown className="h-5 w-5 group-hover:text-blue-500 transition-colors" />
         </motion.button>
       </motion.div>

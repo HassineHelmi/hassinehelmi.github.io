@@ -1,0 +1,233 @@
+{
+  "Navigation": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "skills": "Compétences",
+    "services": "Services",
+    "projects": "Projets",
+    "resume": "CV",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Bonjour, je suis",
+    "title": "Développeur Full-Stack",
+    "downloadCv": "Télécharger CV",
+    "contactMe": "Contactez-moi",
+    "viewProjects": "Voir les Projets",
+    "scrollDown": "Défiler vers le bas"
+  },
+  "About": {
+    "title": "À Propos",
+    "subtitle": "Voici un petit aperçu de mon parcours dans la tech.",
+    "bio": "Je suis un Développeur Full-Stack de Tunisie, diplômé en Informatique de l'EPI Digital School. J'ai de l'expérience dans la création d'applications full-stack, la conception de solutions évolutives et la collaboration en équipe. J'aime créer des composants UI élégants et résoudre des problèmes complexes avec un code efficace.",
+    "location": "Monastir, Tunisie"
+  },
+  "Skills": {
+    "title": "Mes Compétences",
+    "subtitle": "Technologies avec lesquelles je travaille",
+    "categories": {
+      "programming": "Langages de Programmation",
+      "frontend": "Frontend",
+      "backend": "Backend & Bases de Données",
+      "mobile": "Mobile & Outils"
+    }
+  },
+  "Services": {
+    "title": "Mes Services",
+    "subtitle": "Ce que je peux faire pour vous",
+    "items": [
+      {
+        "title": "Développement Web Full-Stack",
+        "description": "Développement d'applications web de bout en bout en utilisant des frameworks modernes et les meilleures pratiques.",
+        "features": [
+          "Applications React.js & Next.js",
+          "APIs Spring Boot & NestJS",
+          "Conception & Intégration de Bases de Données",
+          "Authentification & Autorisation"
+        ]
+      },
+      {
+        "title": "Développement UI/UX",
+        "description": "Création d'interfaces utilisateur magnifiques et réactives avec des principes de conception modernes.",
+        "features": [
+          "Bibliothèques de Composants UI Réutilisables",
+          "Implémentation de Design Réactif",
+          "Développement de Design System",
+          "Conversion Figma vers Code"
+        ]
+      },
+      {
+        "title": "Développement d'Applications Mobiles",
+        "description": "Applications mobiles multiplateformes avec des performances natives et une excellente expérience utilisateur.",
+        "features": [
+          "Développement React Native",
+          "Applications Flutter",
+          "Solutions Multiplateformes",
+          "Déploiement sur App Store"
+        ]
+      },
+      {
+        "title": "Cloud & DevOps",
+        "description": "Infrastructure cloud évolutive et solutions de déploiement pour applications modernes.",
+        "features": [
+          "Conteneurisation Docker",
+          "Intégration des Services AWS",
+          "Configuration de Pipeline CI/CD",
+          "Conception d'Architecture Cloud"
+        ]
+      },
+      {
+        "title": "Solutions Basées sur l'IA",
+        "description": "Applications intelligentes avec des capacités d'intégration d'apprentissage automatique et d'IA.",
+        "features": [
+          "Systèmes d'Analyse IA",
+          "Moteurs de Recommandation",
+          "Applications de Vision par Ordinateur",
+          "Traitement du Langage Naturel"
+        ]
+      }
+    ]
+  },
+  "Experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel",
+    "items": [
+      {
+        "title": "Stage de Fin d'Études",
+        "company": "Tekboot Solutions",
+        "period": "Fév 2025 - Juil 2025",
+        "description": "Développement d'une plateforme de recrutement complète avec Next.js et Spring Boot, intégrant un système d'analyse de CV par IA et un moteur de recommandation d'offres intelligent."
+      },
+      {
+        "title": "Stagiaire Développeur Frontend",
+        "company": "Proxym IT",
+        "period": "Juin 2024 - Juil 2024",
+        "description": "Création d'une bibliothèque complète de composants UI utilisant l'architecture monorepo NX avec React et TailwindCSS pour optimiser le processus de développement."
+      },
+      {
+        "title": "Stagiaire Développeur Logiciel",
+        "company": "Iron Tech",
+        "period": "Juin 2023 - Août 2023",
+        "description": "Développement d'outils UI et de composants réutilisables, en mettant l'accent sur l'architecture des composants et la mise en œuvre d'un Design System."
+      },
+      {
+        "title": "Projet de Miroir Intelligent",
+        "company": "Projet Personnel",
+        "period": "2023",
+        "description": "Création d'une solution IoT innovante comprenant la reconnaissance faciale, la reconnaissance vocale et des capacités de suivi de santé."
+      }
+    ]
+  },
+  "Education": {
+    "title": "Éducation",
+    "items": [
+      {
+        "degree": "Diplôme d'Ingénieur Logiciel",
+        "institution": "EPI Digital School",
+        "period": "2022-2025",
+        "description": "Programme complet couvrant l'architecture logicielle, les pratiques de développement modernes et les technologies émergentes."
+      },
+      {
+        "degree": "Licence en Électronique, Électrotechnique et Automatisme",
+        "institution": "ISSAT Sousse",
+        "period": "2019-2022",
+        "description": "Solide base en systèmes électroniques et automatisés avec une expérience pratique en intégration matérielle-logicielle."
+      }
+    ]
+  },
+  "Certifications": {
+    "title": "Certifications",
+    "items": [
+      {
+        "title": "Microsoft Certified : Azure Fundamentals",
+        "issuer": "Microsoft",
+        "date": "2024"
+      },
+      {
+        "title": "CCNA : Switching, Routing, and Wireless Essentials",
+        "issuer": "Cisco",
+        "date": "2023"
+      }
+    ]
+  },
+  "Projects": {
+    "title": "Projets Phares",
+    "subtitle": "Quelques-uns de mes travaux récents",
+    "viewDemo": "Voir la Démo",
+    "sourceCode": "Code Source",
+    "keyFeatures": "Fonctionnalités Clés",
+    "technologies": "Technologies Utilisées",
+    "items": [
+      {
+        "title": "Iron-ERP",
+        "description": "Un système ERP entièrement personnalisé pour une entreprise du secteur textile, axé sur la chaîne d'approvisionnement, les achats et la traçabilité des stocks avec des API évolutives et des flux de données optimisés.",
+        "features": [
+          "APIs REST évolutives pour les produits, fournisseurs et bons de commande",
+          "Gestion des stocks de bout en bout avec suivi en entrepôt",
+          "Intégration de scanner de codes-barres pour la traçabilité par rouleau",
+          "Optimisation des performances de la base de données et refonte du code hérité"
+        ]
+      },
+      {
+        "title": "Talent Cloud",
+        "description": "Une plateforme de recrutement full-stack complète offrant un matching avancé de candidats, une communication en temps réel et des systèmes d'authentification intégrés.",
+        "features": [
+          "Matching basé sur l'IA",
+          "Messagerie en temps réel",
+          "Filtrage avancé",
+          "Déploiement Cloud"
+        ]
+      },
+      {
+        "title": "Deal Hub",
+        "description": "Application marketplace multiplateforme permettant des expériences d'achat et de vente fluides avec des notifications en temps réel et une intégration de paiement sécurisée.",
+        "features": [
+          "Compatibilité multiplateforme",
+          "Notifications en temps réel",
+          "Paiements sécurisés",
+          "Authentification utilisateur"
+        ]
+      },
+      {
+        "title": "Bankerize UI Toolkit",
+        "description": "Bibliothèque de composants complète construite avec des pratiques de développement modernes, offrant des composants réutilisables et des directives de Design System.",
+        "features": [
+          "Composants réutilisables",
+          "Design system",
+          "Documentation",
+          "Suite de tests"
+        ]
+      }
+    ]
+  },
+  "Resume": {
+    "title": "Mon CV",
+    "subtitle": "Consultez mon CV complet pour plus de détails sur mon expérience et mes compétences.",
+    "downloadButton": "Télécharger le CV"
+  },
+  "Contact": {
+    "title": "Me Contacter",
+    "subtitle": "Travaillons ensemble. Je suis actuellement ouvert à de nouvelles opportunités.",
+    "form": {
+      "nameLabel": "Votre Nom",
+      "namePlaceholder": "Jean Dupont",
+      "emailLabel": "Votre Email",
+      "emailPlaceholder": "jean@exemple.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Parlez-moi de votre projet...",
+      "sendButton": "Envoyer le Message",
+      "sending": "Envoi en cours..."
+    },
+    "errors": {
+      "nameRequired": "Le nom est requis",
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "L'email est invalide",
+      "messageRequired": "Le message est requis"
+    },
+    "success": "Message envoyé avec succès !",
+    "error": "Échec de l'envoi du message. Veuillez réessayer plus tard."
+  },
+  "Footer": {
+    "rights": "© 2024 Helmi Hassine. Tous droits réservés."
+  }
+}

@@ -9,7 +9,7 @@ import {
   ResumeSection,
   ContactSection,
   Footer,
-} from '../components';
+} from '../../components';
 
 export default function Home() {
   return (

@@ -2,9 +2,13 @@
 
 import { motion } from 'motion/react';
 import type { Service } from '../data/data';
-import { services } from '../data/data';
+import { getServices } from '../data/data';
+import { useTranslations } from 'next-intl';
 
 export const ServicesSection = () => {
+  const t = useTranslations('Services');
+  const services = getServices(t);
+
   return (
     <section id="services" className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,10 +20,10 @@ export const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Services
+            {t('title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            Professional expertise to accelerate your software projects
+            {t('subtitle')}
           </p>
         </motion.div>
 

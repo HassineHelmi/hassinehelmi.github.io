@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
-import { personalInfo } from '../data/data';
+import { contactInfo } from '../data/data';
 
 /* ---------- animation variants (module-level, zero re-allocation) ---------- */
 
@@ -23,9 +23,9 @@ const itemVariants = {
 } as const;
 
 const socialLinks = [
-  { href: personalInfo.contact.github, icon: Github, label: 'GitHub' },
-  { href: personalInfo.contact.linkedin, icon: Linkedin, label: 'LinkedIn' },
-  { href: `mailto:${personalInfo.contact.email}`, icon: Mail, label: 'Email' },
+  { href: contactInfo.github, icon: Github, label: 'GitHub' },
+  { href: contactInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  { href: `mailto:${contactInfo.email}`, icon: Mail, label: 'Email' },
 ] as const;
 
 /* ---------- component ---------- */
