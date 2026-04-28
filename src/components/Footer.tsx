@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
 import { contactInfo } from '../data/data';
 import { useTranslation } from '../context/LanguageContext';
 import { scrollToSection } from '../lib/scroll';
@@ -21,6 +21,8 @@ const FOOTER_NAV = [
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+  const rightsText = String(t('Footer.rights')).replace(/\b\d{4}\b/, String(currentYear));
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
@@ -96,11 +98,13 @@ export const Footer = () => {
 
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 dark:text-slate-500 text-sm">
-            {t('Footer.rights')}
+            {rightsText}
           </p>
           <div className="flex items-center text-slate-500 dark:text-slate-500 text-sm">
             <span>Made with</span>
             <Heart className="h-4 w-4 text-red-500 mx-1" />
+            <span>and lots of  </span>
+            <Coffee className="h-4 w-4 text-yellow-500 mx-1" />
             <span>by Helmi Hassine</span>
           </div>
         </div>

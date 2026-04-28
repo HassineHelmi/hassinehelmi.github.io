@@ -11,7 +11,7 @@
   "Hero": {
     "greeting": "Bonjour, je suis",
     "title": "Développeur Full-Stack",
-    "downloadCv": "Télécharger CV",
+    "downloadCv": "Télécharger le CV",
     "contactMe": "Contactez-moi",
     "viewProjects": "Voir les Projets",
     "scrollDown": "Défiler vers le bas"
@@ -19,7 +19,7 @@
   "About": {
     "title": "À Propos",
     "subtitle": "Voici un petit aperçu de mon parcours dans la tech.",
-    "bio": "Je suis un Développeur Full-Stack de Tunisie, diplômé en Informatique de l'EPI Digital School. J'ai de l'expérience dans la création d'applications full-stack, la conception de solutions évolutives et la collaboration en équipe. J'aime créer des composants UI élégants et résoudre des problèmes complexes avec un code efficace.",
+    "bio": "Je suis un Développeur Full-Stack de Tunisie, diplômé en Informatique . J'ai de l'expérience dans la création d'applications full-stack, la conception de solutions évolutives et la collaboration en équipe. J'aime créer des composants UI élégants et résoudre des problèmes complexes avec un code efficace.",
     "location": "Monastir, Tunisie"
   },
   "Skills": {
@@ -80,7 +80,7 @@
         "title": "Solutions Basées sur l'IA",
         "description": "Applications intelligentes avec des capacités d'intégration d'apprentissage automatique et d'IA.",
         "features": [
-          "Systèmes d'Analyse IA",
+          "Systèmes d'analyse par IA",
           "Moteurs de Recommandation",
           "Applications de Vision par Ordinateur",
           "Traitement du Langage Naturel"
@@ -151,10 +151,10 @@
     ]
   },
   "Projects": {
-    "title": "Projets Phares",
+    "title": "Projets Vedettes",
     "subtitle": "Quelques-uns de mes travaux récents",
-    "viewDemo": "Voir la Démo",
-    "sourceCode": "Code Source",
+    "viewDemo": "Voir la démo",
+    "sourceCode": "Code source",
     "keyFeatures": "Fonctionnalités Clés",
     "technologies": "Technologies Utilisées",
     "items": [
