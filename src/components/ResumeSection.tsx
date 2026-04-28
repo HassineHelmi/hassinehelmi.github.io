@@ -3,16 +3,15 @@
 import { motion } from 'motion/react';
 import { Download, FileText } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 import { Button } from './Button';
 
 export const ResumeSection = () => {
-  const t = useTranslations('Resume');
-  const locale = useLocale();
+  const { t, language } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
 
-  const RESUME_PATH = locale === 'fr' ? '/ResumeHassineHelmiFR.pdf' : '/ResumeHassineHelmiEN.pdf';
-  const RESUME_DOWNLOAD_NAME = locale === 'fr' ? 'Helmi_Hassine_CV.pdf' : 'Helmi_Hassine_Resume.pdf';
+  const RESUME_PATH = language === 'fr' ? '/ResumeHassineHelmiFR.pdf' : '/ResumeHassineHelmiEN.pdf';
+  const RESUME_DOWNLOAD_NAME = language === 'fr' ? 'Helmi_Hassine_CV.pdf' : 'Helmi_Hassine_Resume.pdf';
 
   /**
    * PDF `onLoad` doesn't reliably fire in Chrome/Firefox because the
@@ -34,10 +33,10 @@ export const ResumeSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {t('title')}
+            {t('Resume.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            {t('subtitle')}
+            {t('Resume.subtitle')}
           </p>
         </motion.div>
 
@@ -54,7 +53,7 @@ export const ResumeSection = () => {
               size="lg"
             >
               <Download className="mr-2 h-5 w-5" />
-              {t('downloadButton')}
+              {t('Resume.downloadButton')}
             </Button>
           </div>
 
@@ -84,7 +83,7 @@ export const ResumeSection = () => {
                 <a href={RESUME_PATH} download={RESUME_DOWNLOAD_NAME}>
                   <Button>
                     <Download className="mr-2 h-5 w-5" />
-                    {t('downloadButton')}
+                    {t('Resume.downloadButton')}
                   </Button>
                 </a>
               </div>

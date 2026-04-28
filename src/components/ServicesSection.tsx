@@ -3,11 +3,11 @@
 import { motion } from 'motion/react';
 import type { Service } from '../data/data';
 import { getServices } from '../data/data';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 
 export const ServicesSection = () => {
-  const t = useTranslations('Services');
-  const services = getServices(t);
+  const { t, raw } = useTranslation();
+  const services = getServices(raw);
 
   return (
     <section id="services" className="py-20">
@@ -20,10 +20,10 @@ export const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {t('title')}
+            {t('Services.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            {t('subtitle')}
+            {t('Services.subtitle')}
           </p>
         </motion.div>
 

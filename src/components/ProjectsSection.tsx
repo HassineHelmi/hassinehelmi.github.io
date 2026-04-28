@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getProjects } from '../data/data';
 import type { Project } from '../data/data';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 import { Button } from './Button';
 
 /* ------------------------------------------------------------------ */
@@ -109,7 +109,7 @@ const ProjectModal = ({
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
-                  {t('keyFeatures')}
+                  {t('Projects.keyFeatures')}
                 </h4>
                 <ul className="space-y-3">
                   {project.features.map((feature, i) => (
@@ -123,7 +123,7 @@ const ProjectModal = ({
 
               <div>
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
-                  {t('technologies')}
+                  {t('Projects.technologies')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
@@ -236,8 +236,8 @@ const ProjectCard = ({
 /* ------------------------------------------------------------------ */
 
 export const ProjectsSection = () => {
-  const t = useTranslations('Projects');
-  const projects = getProjects(t);
+  const { t, raw } = useTranslation();
+  const projects = getProjects(raw);
   
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -283,10 +283,10 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {t('title')}
+            {t('Projects.title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            {t('subtitle')}
+            {t('Projects.subtitle')}
           </p>
         </motion.div>
 

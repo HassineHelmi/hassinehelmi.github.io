@@ -1,8 +1,9 @@
 'use client';
 
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { X, Github, Linkedin, Mail, ArrowRight, Globe } from 'lucide-react';
 import { contactInfo } from '../data/data';
+import { useTranslation } from '../context/LanguageContext';
 
 /* ---------- animation variants (module-level, zero re-allocation) ---------- */
 
@@ -38,6 +39,7 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuProps) => {
+  const { t, language, setLanguage } = useTranslation();
 
   return (
     <AnimatePresence>
@@ -54,13 +56,25 @@ export const MobileMenu = ({ isOpen, onClose, items, onNavigate }: MobileMenuPro
             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Menu
             </span>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
-              aria-label="Close menu"
-            >
-              <X className="h-8 w-8 text-slate-900 dark:text-white group-hover:rotate-90 transition-transform duration-300" />
-            </button>
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => {
+                  setLanguage(language === 'en' ? 'fr' : 'en');
+                  onClose();
+                }}
+                className="flex items-center space-x-1 text-slate-600 dark:text-slate-300 font-medium px-3 py-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                <Globe className="w-5 h-5" />
+                <span className="text-sm font-semibold">{language.toUpperCase()}</span>
+              </button>
+              <button
+                onClick={onClose}
+                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group"
+                aria-label="Close menu"
+              >
+                <X className="h-8 w-8 text-slate-900 dark:text-white group-hover:rotate-90 transition-transform duration-300" />
+              </button>
+            </div>
           </div>
 
           {/* Navigation Links */}

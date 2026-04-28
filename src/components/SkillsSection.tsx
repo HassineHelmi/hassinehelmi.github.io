@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import { getSkillCategories } from '../data/data';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -24,7 +24,7 @@ const chipContainer = {
 };
 
 export const SkillsSection = () => {
-  const t = useTranslations('Skills');
+  const { t } = useTranslation();
   const skillCategories = getSkillCategories(t);
 
   return (
@@ -40,10 +40,10 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {t('title')}
+            {t('Skills.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            {t('subtitle')}
+            {t('Skills.subtitle')}
           </p>
         </motion.div>
 

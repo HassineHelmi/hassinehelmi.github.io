@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, Heart, Coffee } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { contactInfo } from '../data/data';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 import { scrollToSection } from '../lib/scroll';
 
 const socialLinks = [
@@ -12,11 +12,15 @@ const socialLinks = [
   { icon: Mail, href: `mailto:${contactInfo.email}`, label: 'Email' },
 ] as const;
 
-const FOOTER_NAV = ['Home', 'About', 'Projects', 'Contact'] as const;
+const FOOTER_NAV = [
+  { label: 'Home', id: 'home' },
+  { label: 'About', id: 'about' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Contact', id: 'contact' },
+] as const;
 
 export const Footer = () => {
-  const t = useTranslations('Footer');
-  const tNav = useTranslations('Navigation');
+  const { t } = useTranslation();
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
@@ -32,7 +36,7 @@ export const Footer = () => {
                 Helmi Hassine
               </h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-sm mb-6">
-                Crafting digital experiences with passion and precision.
+                {t('About.bio').split('.')[0] + '.'}
               </p>
               <div className="flex gap-4">
                 {socialLinks.map((link) => (
@@ -60,12 +64,12 @@ export const Footer = () => {
             <h4 className="font-semibold text-slate-900 dark:text-white mb-6">Navigation</h4>
             <ul className="space-y-3">
               {FOOTER_NAV.map((item) => (
-                <li key={item}>
+                <li key={item.id}>
                   <button
-                    onClick={() => scrollToSection(item.toLowerCase())}
+                    onClick={() => scrollToSection(item.id)}
                     className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    {tNav(item.toLowerCase())}
+                    {t(`Navigation.${item.id}`)}
                   </button>
                 </li>
               ))}
@@ -78,7 +82,7 @@ export const Footer = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-6">Contact</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-6">{t('Contact.title')}</h4>
             <ul className="space-y-3 text-slate-600 dark:text-slate-400">
               <li>Monastir, Tunisia</li>
               <li>
@@ -92,13 +96,12 @@ export const Footer = () => {
 
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 dark:text-slate-500 text-sm">
-            {t('rights')}
+            {t('Footer.rights')}
           </p>
           <div className="flex items-center text-slate-500 dark:text-slate-500 text-sm">
             <span>Made with</span>
-            <Heart className="h-4 w-4 text-red-500 mx-1 animate-pulse" />
-            <span>and lots of</span>
-            <Coffee className="h-4 w-4 text-yellow-500 mx-1 animate-pulse" />
+            <Heart className="h-4 w-4 text-red-500 mx-1" />
+            <span>by Helmi Hassine</span>
           </div>
         </div>
       </div>

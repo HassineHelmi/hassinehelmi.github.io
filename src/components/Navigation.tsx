@@ -5,23 +5,19 @@ import { motion } from 'motion/react';
 import { Menu, X, Globe } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import { scrollToSection } from '../lib/scroll';
-import { useTranslations, useLocale } from 'next-intl';
-import { usePathname, useRouter } from '../i18n/routing';
+import { useTranslation } from '../context/LanguageContext';
 
 export const Navigation = () => {
-  const t = useTranslations('Navigation');
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { t, language, setLanguage } = useTranslation();
 
   const navItems = [
-    { name: t('home'), id: 'home' },
-    { name: t('about'), id: 'about' },
-    { name: t('skills'), id: 'skills' },
-    { name: t('services'), id: 'services' },
-    { name: t('projects'), id: 'projects' },
-    { name: t('resume'), id: 'resume' },
-    { name: t('contact'), id: 'contact' },
+    { name: t('Navigation.home'), id: 'home' },
+    { name: t('Navigation.about'), id: 'about' },
+    { name: t('Navigation.skills'), id: 'skills' },
+    { name: t('Navigation.services'), id: 'services' },
+    { name: t('Navigation.projects'), id: 'projects' },
+    { name: t('Navigation.resume'), id: 'resume' },
+    { name: t('Navigation.contact'), id: 'contact' },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -83,13 +79,13 @@ export const Navigation = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <button
-                onClick={() => router.replace(pathname, { locale: locale === 'en' ? 'fr' : 'en' })}
+               <button
+                onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')}
                 className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-800 rounded-full transition-all duration-200"
                 aria-label="Toggle Language"
               >
                 <Globe className="w-4 h-4" />
-                <span>{locale === 'en' ? 'FR' : 'EN'}</span>
+                <span className="text-xs font-semibold">{language.toUpperCase()}</span>
               </button>
 
               {/* Mobile Menu Button */}

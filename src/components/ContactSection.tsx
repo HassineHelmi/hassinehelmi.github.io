@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, Github, Linkedin, MessageSquare, ArrowRight } from 'lucide-react';
 import { contactInfo } from '../data/data';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 import { Button } from './Button';
 
 const contactMethods = [
@@ -15,7 +15,7 @@ const contactMethods = [
 ] as const;
 
 export const ContactSection = () => {
-  const t = useTranslations('Contact');
+  const { t } = useTranslation();
 
   return (
     <section id="contact" className="py-20 sm:py-24">
@@ -33,15 +33,15 @@ export const ContactSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            ✨ {t('title')}
+            ✨ {t('Contact.title')}
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
-            {t('title')}
+            {t('Contact.title')}
           </h2>
           
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            {t('subtitle')}
+            {t('Contact.subtitle')}
           </p>
 
           <motion.div
@@ -56,7 +56,7 @@ export const ContactSection = () => {
               className="group text-lg px-8 py-4 rounded-full"
             >
               <Mail className="mr-2 h-5 w-5" />
-              {t('form.sendButton')}
+              {t('Contact.form.sendButton')}
               <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>

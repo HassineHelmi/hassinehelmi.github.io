@@ -3,10 +3,10 @@
 import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from '../context/LanguageContext';
 
 export const AboutSection = () => {
-  const t = useTranslations('About');
+  const { t } = useTranslation();
 
   return (
     <section id="about" className="py-16 sm:py-20">
@@ -19,10 +19,10 @@ export const AboutSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            {t('title')}
+            {t('About.title')}
           </h2>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400">
-            {t('subtitle')}
+            {t('About.subtitle')}
           </p>
         </motion.div>
 
@@ -67,11 +67,11 @@ export const AboutSection = () => {
           >
             <div className="flex items-center text-slate-600 dark:text-slate-400 mb-4 sm:mb-6">
               <MapPin className="h-5 w-5 mr-2 flex-shrink-0" />
-              <span>{t('location')}</span>
+              <span>{t('About.location')}</span>
             </div>
 
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-              {t('bio')}
+              {t('About.bio')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 sm:pt-6">

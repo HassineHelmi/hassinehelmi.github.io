@@ -74,7 +74,7 @@ export const contactInfo = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getSkillCategories = (t: any): SkillCategory[] => [
   {
-    title: t('categories.programming'),
+    title: t('Skills.categories.programming'),
     icon: Code,
     skills: [
       { name: 'Java', icon: Code, level: 90 },
@@ -84,7 +84,7 @@ export const getSkillCategories = (t: any): SkillCategory[] => [
     ]
   },
   {
-    title: t('categories.frontend'),
+    title: t('Skills.categories.frontend'),
     icon: Smartphone,
     skills: [
       { name: 'React.js', icon: SiReact, level: 90 },
@@ -95,7 +95,7 @@ export const getSkillCategories = (t: any): SkillCategory[] => [
     ]
   },
   {
-    title: t('categories.backend'),
+    title: t('Skills.categories.backend'),
     icon: Database,
     skills: [
       { name: 'Spring Boot', icon: SiSpringboot, level: 85 },
@@ -107,7 +107,7 @@ export const getSkillCategories = (t: any): SkillCategory[] => [
     ]
   },
   {
-    title: t('categories.mobile'),
+    title: t('Skills.categories.mobile'),
     icon: Settings,
     skills: [
       { name: 'React Native', icon: SiReact, level: 80 },
@@ -121,7 +121,7 @@ export const getSkillCategories = (t: any): SkillCategory[] => [
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getServices = (t: any): Service[] => {
-  const items = t.raw('items');
+  const items = t('Services.items');
   return [
     {
       title: items[0].title,
@@ -163,7 +163,7 @@ export const getServices = (t: any): Service[] => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getExperiences = (t: any): Experience[] => {
-  const items = t.raw('items');
+  const items = t('Experience.items');
   return [
     {
       title: items[0].title,
@@ -198,7 +198,7 @@ export const getExperiences = (t: any): Experience[] => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getProjects = (t: any): Project[] => {
-  const items = t.raw('items');
+  const items = t('Projects.items');
   return [
     {
       title: items[0].title,
