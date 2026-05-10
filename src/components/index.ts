@@ -10,3 +10,4 @@ export { ContactSection } from './ContactSection';
 export { Footer } from './Footer';
 export { FadeInSection } from './FadeInSection';
 export { ParallaxElement } from './ParallaxElement';
+export * from './JsonLd';

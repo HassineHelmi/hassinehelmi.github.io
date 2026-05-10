@@ -47,7 +47,7 @@ export const AboutSection = () => {
                     width={320}
                     height={320}
                     className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    priority
                   />
                 </div>
               </motion.div>
