@@ -78,9 +78,10 @@ const ProjectModal = ({
               <Image
                 src={project.screenshot}
                 alt={`${project.title} - project screenshot`}
-                width={1920}
-                height={1080}
-                className="block w-full h-auto"
+                    width={1920}
+                    height={1080}
+                    sizes="100vw"
+                    className="block w-full h-auto"
               />
             </div>
           )}
@@ -177,6 +178,8 @@ const ProjectCard = ({
           alt={`${project.title} - project screenshot`}
           width={400}
           height={300}
+          sizes="(max-width: 640px) 100vw, 380px"
+          priority={index < 2}
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
         />
       ) : (
