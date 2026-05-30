@@ -1,9 +1,9 @@
 'use client';
 
 import { motion, AnimatePresence } from 'motion/react';
-import { Github, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Github, X, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getProjects } from '../data/data';
 import type { Project } from '../data/data';
 import { useTranslation } from '../context/LanguageContext';
@@ -78,10 +78,10 @@ const ProjectModal = ({
               <Image
                 src={project.screenshot}
                 alt={`${project.title} - project screenshot`}
-                    width={1920}
-                    height={1080}
-                    sizes="100vw"
-                    className="block w-full h-auto"
+                width={1920}
+                height={1080}
+                sizes="100vw"
+                className="block w-full h-auto"
               />
             </div>
           )}
@@ -157,82 +157,100 @@ const ProjectCard = ({
   project: Project;
   index: number;
   onSelect: (p: Project) => void;
-}) => (
-  <motion.div
-    className="group relative bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col min-w-[280px] sm:min-w-[340px] lg:min-w-[380px] max-w-[380px] h-full snap-start"
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-    viewport={{ once: true }}
-    whileHover={{ y: -5 }}
-    onClick={() => onSelect(project)}
-  >
-    <div
-      className={`relative h-48 overflow-hidden ${
-        project.screenshotBgClass ?? 'bg-slate-100 dark:bg-slate-800'
-      }`}
+}) => {
+  // Calculate top offset for stickiness. 
+  // Base offset is 6rem (96px). Each subsequent card is offset by 2rem (32px) more.
+  const stickyTop = `calc(6rem + ${index * 2}rem)`;
+
+  return (
+    <motion.div
+      className="sticky w-full"
+      style={{ top: stickyTop }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      {project.screenshot ? (
-        <Image
-          src={project.screenshot}
-          alt={`${project.title} - project screenshot`}
-          width={400}
-          height={300}
-          sizes="(max-width: 640px) 100vw, 380px"
-          priority={index < 2}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-        />
-      ) : (
-        <div className="flex items-center justify-center h-full text-slate-400">
-          No Preview Available
+      <div 
+        className="group relative bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col md:flex-row h-auto md:h-[550px] mb-[10vh]"
+        onClick={() => onSelect(project)}
+      >
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-between z-10 bg-white dark:bg-slate-900">
+          <div>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {project.title}
+              </h3>
+              <div className="flex gap-3">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`${project.title} GitHub repository`}
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                )}
+                <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-full text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-500 transition-colors duration-300">
+                  <ArrowUpRight className="h-5 w-5" />
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 line-clamp-4 leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mt-4">
+            {project.technologies.slice(0, 5).map((tech, i) => (
+              <span
+                key={i}
+                className="px-4 py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-xl border border-slate-100 dark:border-slate-700"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 5 && (
+              <span className="px-4 py-2 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-xl border border-slate-100 dark:border-slate-700">
+                +{project.technologies.length - 5}
+              </span>
+            )}
+          </div>
         </div>
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-        <span className="text-white font-medium text-sm">View Details</span>
-      </div>
-    </div>
 
-    <div className="p-6 flex flex-col flex-grow">
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {project.title}
-        </h3>
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-            onClick={(e) => e.stopPropagation()}
-            aria-label={`${project.title} GitHub repository`}
-          >
-            <Github className="h-5 w-5" />
-          </a>
-        )}
+        {/* Image / Visuals */}
+        <div
+          className={`relative w-full md:w-1/2 h-72 md:h-full overflow-hidden ${
+            project.screenshotBgClass ?? 'bg-slate-100 dark:bg-slate-800'
+          }`}
+        >
+          {project.screenshot ? (
+            <Image
+              src={project.screenshot}
+              alt={`${project.title} - project screenshot`}
+              width={1000}
+              height={800}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={index === 0}
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-slate-400">
+              No Preview Available
+            </div>
+          )}
+          {/* Subtle gradient overlay to blend edges */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent md:bg-gradient-to-l md:from-white/10 md:dark:from-slate-900/10 md:to-transparent pointer-events-none" />
+        </div>
       </div>
-
-      <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3 flex-grow">
-        {project.description}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mt-auto">
-        {project.technologies.slice(0, 3).map((tech, i) => (
-          <span
-            key={i}
-            className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full"
-          >
-            {tech}
-          </span>
-        ))}
-        {project.technologies.length > 3 && (
-          <span className="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full">
-            +{project.technologies.length - 3}
-          </span>
-        )}
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 /* ------------------------------------------------------------------ */
 /*  Section                                                            */
@@ -243,84 +261,28 @@ export const ProjectsSection = () => {
   const projects = getProjects(raw);
   
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateScrollState = useCallback(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-  }, []);
-
-  const scroll = useCallback(
-    (direction: 'left' | 'right') => {
-      const el = scrollerRef.current;
-      if (!el) return;
-      el.scrollBy({
-        left: direction === 'left' ? -el.clientWidth * 0.85 : el.clientWidth * 0.85,
-        behavior: 'smooth',
-      });
-    },
-    [],
-  );
-
-  useEffect(() => {
-    updateScrollState();
-    window.addEventListener('resize', updateScrollState);
-    return () => window.removeEventListener('resize', updateScrollState);
-  }, [updateScrollState]);
-
   const closeModal = useCallback(() => setSelectedProject(null), []);
 
   return (
-    <section id="projects" className="py-20 sm:py-24">
+    <section id="projects" className="py-24 sm:py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="mb-20 md:mb-32"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
             {t('Projects.title')}
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
             {t('Projects.subtitle')}
           </p>
         </motion.div>
 
-        {/* Scroll controls */}
-        <div className="flex justify-end gap-3 mb-6">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => scroll('left')}
-            disabled={!canScrollLeft}
-            aria-label="Scroll projects left"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => scroll('right')}
-            disabled={!canScrollRight}
-            aria-label="Scroll projects right"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
-
-        {/* Horizontal card scroller */}
-        <div
-          ref={scrollerRef}
-          onScroll={updateScrollState}
-          className="flex gap-8 overflow-x-auto pb-2 snap-x snap-mandatory custom-scrollbar"
-        >
+        {/* Stacked Cards Container */}
+        <div className="relative flex flex-col w-full pb-[5vh]">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
@@ -332,7 +294,7 @@ export const ProjectsSection = () => {
         </div>
 
         <motion.div
-          className="text-center mt-16"
+          className="flex justify-center mt-20 md:mt-32"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -342,8 +304,9 @@ export const ProjectsSection = () => {
             variant="outline"
             size="lg"
             onClick={() => window.open('https://github.com/HassineHelmi', '_blank')}
+            className="rounded-full px-8 py-6 text-lg hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all duration-300"
           >
-            <Github className="mr-2 h-5 w-5" />
+            <Github className="mr-3 h-6 w-6" />
             View More on GitHub
           </Button>
         </motion.div>
