@@ -22,7 +22,6 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>('en');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const savedLang = localStorage.getItem('portfolio-lang') as Language;
@@ -32,13 +31,16 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
       setLanguageState(browserLang);
     }
-    setMounted(true);
   }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem('portfolio-lang', lang);
   };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const getTranslation = (path: string) => {
     const keys = path.split('.');

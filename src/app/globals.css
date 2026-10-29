@@ -1,117 +1,78 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
+  color-scheme: light;
+  --background: #fafafa;
+  --foreground: #09090b;
+  --primary: #18181b;
+  --on-primary: #ffffff;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-text: #1d4ed8;
+  --on-accent: #ffffff;
+  --muted: #e8ecf0;
+  --muted-foreground: #475569;
+  --border: #e4e4e7;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --ring: #18181b;
 }
 
 .dark {
-  /* Deep Slate / Navy Backgrounds */
-  --background: #020617; /* slate-950 */
-  --foreground: #f8fafc; /* slate-50 */
-  
-  /* Vibrant Accents */
-  --primary: #3b82f6; /* blue-500 */
-  --primary-foreground: #ffffff;
-  
-  /* Secondary / Surface Colors */
-  --secondary: #1e293b; /* slate-800 */
-  --secondary-foreground: #f8fafc;
-  
-  --muted: #0f172a; /* slate-900 */
-  --muted-foreground: #94a3b8; /* slate-400 */
-  
-  --border: #1e293b; /* slate-800 */
-  
-  --card: #0f172a; /* slate-900 */
-  --card-foreground: #f8fafc;
+  color-scheme: dark;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --primary: #fafafa;
+  --on-primary: #09090b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-text: #93c5fd;
+  --on-accent: #ffffff;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --border: #27272a;
+  --card: #111113;
+  --ring: #fafafa;
+}
+
+@theme inline {
+  --font-sans: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-ring: var(--ring);
 }
 
 html {
+  background: var(--background);
   scroll-behavior: smooth;
-  width: 100%;
-  /* Match the page gradient start so no bare white/dark ever shows */
-  background: #f8fafc; /* slate-50 */
-}
-
-html.dark {
-  background: #020617; /* slate-950 */
+  scroll-padding-top: 5rem;
+  scrollbar-color: var(--border) transparent;
 }
 
 body {
-  background: transparent;
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  width: 100%;
-  max-width: 100%;
-}
- 
-::-webkit-scrollbar {
-  width: 6px;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #4f46e5);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #4338ca);
-}
-
-/* Firefox Support */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #3b82f6 transparent;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Thin custom scrollbar for horizontal carousels & modal bodies */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #3b82f6 transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(to right, #3b82f6, #4f46e5);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to right, #2563eb, #4338ca);
-}
-
-/* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

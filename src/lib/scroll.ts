@@ -7,8 +7,9 @@ export const scrollToSection = (sectionId: string, offset = 80): void => {
   if (!element) return;
 
   const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.scrollTo({
     top: elementPosition - offset,
-    behavior: 'smooth',
+    behavior: reduceMotion ? 'auto' : 'smooth',
   });
 };

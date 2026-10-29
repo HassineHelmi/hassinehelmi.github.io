@@ -1,20 +1,31 @@
 {
   "Navigation": {
-    "home": "Home",
-    "about": "About",
-    "skills": "Skills",
+    "work": "Work",
     "services": "Services",
-    "projects": "Projects",
-    "resume": "Resume",
+    "experience": "Experience",
+    "about": "About",
     "contact": "Contact"
   },
+  "A11y": {
+    "skip": "Skip to content",
+    "primary": "Primary",
+    "language": "Language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toDark": "Switch to dark theme",
+    "toLight": "Switch to light theme"
+  },
   "Hero": {
-    "greeting": "Hi, I'm",
     "title": "Full-Stack Developer",
+    "lede": "I build web platforms, product interfaces, and mobile apps — clear in structure, careful in the details.",
+    "portraitAlt": "Portrait of Helmi Hassine",
+    "based": "Based in",
+    "focus": "Focus",
+    "focusValue": "Web, product, mobile",
+    "status": "Status",
+    "statusValue": "Available",
     "downloadCv": "Download CV",
-    "contactMe": "Contact Me",
-    "viewProjects": "View Projects",
-    "scrollDown": "Scroll Down"
+    "viewProjects": "View work"
   },
   "About": {
     "title": "About Me",
@@ -208,6 +219,13 @@
   "Contact": {
     "title": "Get In Touch",
     "subtitle": "Let's work together. I'm currently open for new opportunities.",
+    "channels": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
     "form": {
       "nameLabel": "Your Name",
       "namePlaceholder": "John Doe",
@@ -228,6 +246,6 @@
     "error": "Failed to send message. Please try again later."
   },
   "Footer": {
-    "rights": "© 2024 Helmi Hassine. All rights reserved."
+    "rights": "© 2026 Helmi Hassine. All rights reserved."
   }
 }

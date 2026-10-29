@@ -4,8 +4,8 @@
   "description": "Full Stack Developer from Monastir, Tunisia. Specialized in Java, JavaScript, React, Spring Boot, and modern web technologies.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "background_color": "#fafafa",
+  "theme_color": "#18181b",
   "icons": [
     {
       "src": "/favicon.ico",

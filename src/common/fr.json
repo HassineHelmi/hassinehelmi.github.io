@@ -1,20 +1,31 @@
 {
   "Navigation": {
-    "home": "Accueil",
-    "about": "À Propos",
-    "skills": "Compétences",
+    "work": "Travaux",
     "services": "Services",
-    "projects": "Projets",
-    "resume": "CV",
+    "experience": "Parcours",
+    "about": "À propos",
     "contact": "Contact"
   },
+  "A11y": {
+    "skip": "Aller au contenu",
+    "primary": "Principale",
+    "language": "Langue",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "toDark": "Passer au thème sombre",
+    "toLight": "Passer au thème clair"
+  },
   "Hero": {
-    "greeting": "Bonjour, je suis",
     "title": "Développeur Full-Stack",
+    "lede": "Je construis des plateformes web, des interfaces produit et des applications mobiles — claires dans leur structure, soignées dans le détail.",
+    "portraitAlt": "Portrait de Helmi Hassine",
+    "based": "Basé à",
+    "focus": "Domaine",
+    "focusValue": "Web, produit, mobile",
+    "status": "Statut",
+    "statusValue": "Disponible",
     "downloadCv": "Télécharger le CV",
-    "contactMe": "Contactez-moi",
-    "viewProjects": "Voir les Projets",
-    "scrollDown": "Défiler vers le bas"
+    "viewProjects": "Voir les projets"
   },
   "About": {
     "title": "À Propos",
@@ -208,6 +219,13 @@
   "Contact": {
     "title": "Me Contacter",
     "subtitle": "Travaillons ensemble. Je suis actuellement ouvert à de nouvelles opportunités.",
+    "channels": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
     "form": {
       "nameLabel": "Votre Nom",
       "namePlaceholder": "Jean Dupont",
@@ -228,6 +246,6 @@
     "error": "Échec de l'envoi du message. Veuillez réessayer plus tard."
   },
   "Footer": {
-    "rights": "© 2024 Helmi Hassine. Tous droits réservés."
+    "rights": "© 2026 Helmi Hassine. Tous droits réservés."
   }
 }

@@ -1,33 +1,25 @@
-import {
-  Navigation,
-  DynamicBackground,
-  HeroSection,
-  AboutSection,
-  SkillsSection,
-  ServicesSection,
-  ProjectsSection,
-  ResumeSection,
-  ContactSection,
-  Footer,
-} from '../components';
+import { About } from '../components/about';
+import { Contact } from '../components/contact';
+import { Experience } from '../components/experience';
+import { Hero } from '../components/hero';
+import { Services } from '../components/services';
+import { SiteFooter } from '../components/site-footer';
+import { SiteHeader } from '../components/site-header';
+import { Work } from '../components/work';
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 relative overflow-x-clip">
-      <DynamicBackground />
-
-      <div className="relative z-10">
-        <Navigation />
-
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ServicesSection />
-        <ProjectsSection />
-        <ResumeSection />
-        <ContactSection />
-        <Footer />
-      </div>
-    </div>
+    <>
+      <SiteHeader />
+      <main id="main">
+        <Hero />
+        <Work />
+        <Services />
+        <Experience />
+        <About />
+        <Contact />
+      </main>
+      <SiteFooter />
+    </>
   );
 }
