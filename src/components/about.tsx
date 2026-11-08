@@ -12,7 +12,7 @@ export function About() {
   return (
     <section id="about" className="scroll-mt-20 border-t border-border py-20 sm:py-28">
       <div className={containerClass}>
-        <SectionHeading index="04" title={t('About.title')} summary={t('About.subtitle')} />
+        <SectionHeading title={t('About.title')} summary={t('About.subtitle')} />
         <p className="mt-10 max-w-3xl text-lg leading-relaxed text-foreground">{t('About.bio')}</p>
 
         <div className="mt-16 border-t border-border pt-10">

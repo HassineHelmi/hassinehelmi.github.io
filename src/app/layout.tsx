@@ -22,8 +22,8 @@ const META_DESCRIPTION =
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FAFAFA' },
-    { media: '(prefers-color-scheme: dark)', color: '#09090B' },
+    { media: '(prefers-color-scheme: light)', color: '#F3EEE3' },
+    { media: '(prefers-color-scheme: dark)', color: '#111111' },
   ],
 };
 

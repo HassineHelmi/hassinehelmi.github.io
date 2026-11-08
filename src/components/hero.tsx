@@ -45,7 +45,7 @@ export function Hero() {
               height={810}
               priority
               sizes="(min-width: 1024px) 34vw, 100vw"
-              className="aspect-[4/5] w-full border border-border object-cover object-[72%_18%]"
+              className="aspect-[4/5] w-full border border-border object-cover object-[72%_18%] shadow-[1.25rem_1.25rem_0_var(--accent)]"
             />
           </figure>
         </div>

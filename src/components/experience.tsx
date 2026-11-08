@@ -17,7 +17,7 @@ export function Experience() {
   return (
     <section id="experience" className="scroll-mt-20 border-t border-border py-20 sm:py-28">
       <div className={containerClass}>
-        <SectionHeading index="03" title={t('Experience.title')} summary={t('Experience.subtitle')} />
+        <SectionHeading title={t('Experience.title')} summary={t('Experience.subtitle')} />
 
         <ol className="mt-10 border-t border-border">
           {experiences.map((item) => (

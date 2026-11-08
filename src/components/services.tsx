@@ -12,7 +12,7 @@ export function Services() {
   return (
     <section id="services" className="scroll-mt-20 border-t border-border py-20 sm:py-28">
       <div className={containerClass}>
-        <SectionHeading index="02" title={t('Services.title')} summary={t('Services.subtitle')} />
+        <SectionHeading title={t('Services.title')} summary={t('Services.subtitle')} />
 
         <div className="mt-10 border-t border-border">
           {services.map((service, index) => (
