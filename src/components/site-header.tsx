@@ -80,7 +80,7 @@ export function SiteHeader() {
           onClick={() => go('home')}
           className={`cursor-pointer font-heading text-lg tracking-[-0.04em] ${focusClass}`}
         >
-          Helmi
+          Helmi.dev
         </button>
 
         <nav aria-label={t('A11y.primary')} className="hidden items-center gap-6 lg:flex">

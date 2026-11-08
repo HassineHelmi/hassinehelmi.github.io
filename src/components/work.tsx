@@ -14,7 +14,7 @@ export function Work() {
   return (
     <section id="work" className="scroll-mt-20 border-t border-border py-20 sm:py-28">
       <div className={containerClass}>
-        <SectionHeading index="01" title={t('Projects.title')} summary={t('Projects.subtitle')} />
+        <SectionHeading title={t('Projects.title')} summary={t('Projects.subtitle')} />
 
         <div className="mt-4">
           {projects.map((project, index) => (
